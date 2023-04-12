@@ -3,11 +3,12 @@ package flappybird;
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
+import java.awt.Color;
 
 public class Bird {
 
-    public static final double BIRD_X = 60; //TODO update these values;
-    public static final double BIRD_WIDTH = 60;
+    public static final double BIRD_X = 300; //TODO update these values;
+    public static final double BIRD_WIDTH = 120;
     
     private GraphicsGroup graphics;
     private Rectangle hitBox;
@@ -15,7 +16,11 @@ public class Bird {
     private double velocity;
 
     public Bird() {
-
+        graphics = new GraphicsGroup();
+        hitBox = new Rectangle(BIRD_X, 400, BIRD_WIDTH, BIRD_WIDTH);
+        hitBox.setFilled(true);
+        hitBox.setFillColor(new Color(255, 0, 0));
+        graphics.add(hitBox);
     }
 
     /*
@@ -30,6 +35,10 @@ public class Bird {
      */
     public void flap() {
 
+    }
+
+    public GraphicsGroup getGraphic() {
+        return graphics;
     }
 
 }

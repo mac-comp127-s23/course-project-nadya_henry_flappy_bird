@@ -7,6 +7,7 @@ public class Pipe {
     private GraphicsGroup pipeGraphic;
 
     public Pipe(double edge) {
+        
     }
 
     /*
