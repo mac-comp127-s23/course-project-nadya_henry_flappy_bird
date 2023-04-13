@@ -29,8 +29,14 @@ public class Bird {
      * Runs every frame.
      */
     public void move() {
+
+        //TODO ideally we would rotate birdImage based on velocity here.
+
         graphics.moveBy(0, -velocity);
         velocity -= 0.5;
+
+        //TODO check if the bird hits the ground here.
+        
     }
 
     /*
