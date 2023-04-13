@@ -34,7 +34,9 @@ public class PipesHandler {
      * Create two new pipes and add them to pipes.
      */
     public void generatePipes() {
+        //TODO generate two pipes and add them to pipes
 
+        //TODO add the graphics of those pipes to pipesGraphics
     }
 
     /*

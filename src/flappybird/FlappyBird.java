@@ -31,6 +31,8 @@ public class FlappyBird {
 
     }
 
+    //TODO make a reset game function and think about what that needs to do
+
     public static void main(String[] args) {
         new FlappyBird();
     }
