@@ -1,6 +1,7 @@
 package flappybird;
 
 import edu.macalester.graphics.CanvasWindow;
+import edu.macalester.graphics.events.Key;
 
 public class FlappyBird {
 
@@ -18,6 +19,10 @@ public class FlappyBird {
 
         bird = new Bird();
         canvas.add(bird.getGraphic());
+        canvas.onClick(event -> bird.flap());
+        canvas.onKeyDown(event -> {
+            if (event.getKey().equals(Key.SPACE)) bird.flap();
+        });
         canvas.draw();
 
     }

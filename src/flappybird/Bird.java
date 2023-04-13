@@ -34,7 +34,7 @@ public class Bird {
      * Run when user clicks or presses spacebar.
      */
     public void flap() {
-
+        
     }
 
     public GraphicsGroup getGraphic() {
