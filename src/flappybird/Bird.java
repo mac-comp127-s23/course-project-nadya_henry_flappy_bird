@@ -7,8 +7,8 @@ import java.awt.Color;
 
 public class Bird {
 
-    public static final double BIRD_X = 300; //TODO update these values;
-    public static final double BIRD_WIDTH = 120;
+    public static final double BIRD_X = 200; //TODO update these values;
+    public static final double BIRD_WIDTH = 60;
     
     private GraphicsGroup graphics;
     private Rectangle hitBox;
@@ -17,9 +17,10 @@ public class Bird {
 
     public Bird() {
         graphics = new GraphicsGroup();
-        hitBox = new Rectangle(BIRD_X, 400, BIRD_WIDTH, BIRD_WIDTH);
-        hitBox.setFilled(true);
-        hitBox.setFillColor(new Color(255, 0, 0));
+
+        hitBox = new Rectangle(BIRD_X, 350, BIRD_WIDTH, BIRD_WIDTH);
+        // hitBox.setStroked(false); // Comment out for testing
+        hitBox.setFilled(false);
         graphics.add(hitBox);
     }
 
@@ -34,7 +35,7 @@ public class Bird {
      * Run when user clicks or presses spacebar.
      */
     public void flap() {
-        
+
     }
 
     public GraphicsGroup getGraphic() {
