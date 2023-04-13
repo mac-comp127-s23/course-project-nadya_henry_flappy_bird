@@ -31,14 +31,14 @@ public class Bird {
      */
     public void move() {
         graphics.moveBy(0, -velocity);
-        velocity -= 3;
+        velocity -= 0.5;
     }
 
     /*
      * Run when user clicks or presses spacebar.
      */
     public void flap() {
-        velocity = 5;
+        velocity = 6.9;
     }
 
     public GraphicsGroup getGraphic() {

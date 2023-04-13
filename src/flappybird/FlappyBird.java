@@ -23,7 +23,11 @@ public class FlappyBird {
         canvas.onKeyDown(event -> {
             if (event.getKey().equals(Key.SPACE)) bird.flap();
         });
-        canvas.draw();
+
+        Runnable mainGameplayLoop = () -> {
+            bird.move();
+        };
+        canvas.animate(mainGameplayLoop);
 
     }
 
