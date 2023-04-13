@@ -9,7 +9,9 @@ import edu.macalester.graphics.GraphicsGroup;
 public class PipesHandler {
     
     private static final int PIPE_GAP = 20;
-    public static final int PIPE_INIT_X = 1000; //TODO fix these values!
+    public static final int PIPE_INIT_X = 1000; //TODO decide on these constants!
+    public static final int PIPE_VELOCITY = 10; //TODO add this to UML
+
 
     private static Random random;
     private List<Pipe> pipes;
