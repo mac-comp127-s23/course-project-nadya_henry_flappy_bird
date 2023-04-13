@@ -8,7 +8,7 @@ import edu.macalester.graphics.GraphicsGroup;
 
 public class PipesHandler {
     
-    private static final int PIPE_GAP = 20;
+    private static final int PIPE_GAP = 50;
     public static final int PIPE_INIT_X = 1000; //TODO decide on these constants!
     public static final int PIPE_VELOCITY = 10; //TODO add this to UML
 
@@ -26,7 +26,21 @@ public class PipesHandler {
      * Runs every frame.
      * @return true if a point should be awarded.
      */
-    public boolean movePipes() {
+    public boolean movePipes(Bird bird) { // TODO note that this function needs bird parameter on UML
+
+        pipeGraphics.moveBy(-PIPE_VELOCITY, 0); // Move the graphics
+
+        for (Pipe pipe : pipes) {
+            
+            if (pipe.testHit(bird)) { // TODO figure out death logic and add that here!
+                return false;
+            }
+
+            pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved
+
+        }
+
+        //TODO check if a pipe just passed the bird, and return true if it did (to reward a point)
         return false;
     }
 
