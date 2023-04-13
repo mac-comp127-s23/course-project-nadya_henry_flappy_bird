@@ -22,20 +22,23 @@ public class Bird {
         // hitBox.setStroked(false); // Comment out for testing
         hitBox.setFilled(false);
         graphics.add(hitBox);
+
+        
     }
 
     /*
      * Runs every frame.
      */
     public void move() {
-
+        graphics.moveBy(0, -velocity);
+        velocity -= 3;
     }
 
     /*
      * Run when user clicks or presses spacebar.
      */
     public void flap() {
-
+        velocity = 5;
     }
 
     public GraphicsGroup getGraphic() {
