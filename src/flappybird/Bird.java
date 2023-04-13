@@ -11,18 +11,21 @@ public class Bird {
     
     private GraphicsGroup graphics;
     private Rectangle hitBox;
-    private Image birdPic; // TODO add the bird picture and make the hitbox invisible
+    private Image birdPic;
     private double velocity;
 
     public Bird() {
         graphics = new GraphicsGroup();
 
         hitBox = new Rectangle(BIRD_X, 350, BIRD_WIDTH, BIRD_WIDTH);
-        // hitBox.setStroked(false); // Comment out for testing
+        hitBox.setStroked(false); // Comment out this line to see hitBox
         hitBox.setFilled(false);
         graphics.add(hitBox);
 
-
+        birdPic = new Image("flappyBird.png");
+        birdPic.setScale(0.1);
+        birdPic.setCenter(BIRD_X + (BIRD_WIDTH/2), 350 + (BIRD_WIDTH/2));
+        graphics.add(birdPic);
     }
 
     /*
@@ -30,7 +33,7 @@ public class Bird {
      */
     public void move() {
 
-        //TODO ideally we would rotate birdImage based on velocity here.
+        birdPic.setRotation(velocityToAngle(velocity));
 
         graphics.moveBy(0, -velocity);
         velocity -= 0.5;
@@ -48,6 +51,14 @@ public class Bird {
 
     public GraphicsGroup getGraphic() {
         return graphics;
+    }
+
+    /* TODO add this function to the UML document
+     * Private helper function to get the angle of the bird image
+     * based on its velocity.
+     */
+    private double velocityToAngle(double velocity) {
+        return (-velocity) / (0.5) - 10;
     }
 
 }
