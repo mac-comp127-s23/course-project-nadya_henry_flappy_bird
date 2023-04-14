@@ -30,7 +30,7 @@ public class FlappyBird {
 
         Runnable mainGameplayLoop = () -> {
             bird.move();
-            pipesHandler.movePipes(bird);
+            if (pipesHandler.movePipes(bird)) points++;
         };
         canvas.animate(mainGameplayLoop);
 
