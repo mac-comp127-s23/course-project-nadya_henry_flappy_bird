@@ -49,8 +49,6 @@ public class PipesHandler {
         onScreenPipes.addAll(pipes.stream()
                                 .filter(pipe -> (pipe.getX() >= -80))
                                 .toList());
-        
-        System.out.println(onScreenPipes);
         if (pipes.size() != onScreenPipes.size()) {
             pipes = onScreenPipes;
             generatePipes(randomRange());
