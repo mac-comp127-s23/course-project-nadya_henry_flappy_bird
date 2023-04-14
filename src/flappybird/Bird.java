@@ -43,7 +43,7 @@ public class Bird {
         //     velocity = 0;
         //     graphics.setPosition(BIRD_X, FlappyBird.GROUND_Y - BIRD_WIDTH);
             // isGameOver = true;
-        }
+        // }
         
     }
 
