@@ -9,8 +9,8 @@ import edu.macalester.graphics.GraphicsGroup;
 public class PipesHandler {
     
     private static final int PIPE_GAP = 80;
-    public static final int PIPE_INIT_X = 650; //TODO adjust these constants!
-    public static final int PIPE_VELOCITY = 5; //TODO add this to UML
+    public static final int PIPE_INIT_X = 650;
+    public static final int PIPE_VELOCITY = 5;
 
 
     private static Random random;
@@ -29,7 +29,7 @@ public class PipesHandler {
      * Runs every frame.
      * @return true if a point should be awarded.
      */
-    public boolean movePipes(Bird bird) { // TODO note that this function needs bird parameter on UML doc
+    public boolean movePipes(Bird bird) {
 
         for (Pipe pipe : pipes) {
             
@@ -91,7 +91,7 @@ public class PipesHandler {
 
 
 
-    public GraphicsGroup getGraphic() { //TODO add to UML doc
+    public GraphicsGroup getGraphic() {
         return pipeGraphics;
     }
 

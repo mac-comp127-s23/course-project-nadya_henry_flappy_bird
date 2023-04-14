@@ -13,7 +13,7 @@ public class Bird {
     private Rectangle hitBox;
     private Image birdPic;
     private double velocity;
-    private boolean alive; // TODO add to uml
+    private boolean alive;
 
     public Bird() {
         alive = true;
@@ -59,11 +59,11 @@ public class Bird {
         return graphics;
     }
 
-    public boolean isAlive() { // TODO add to uml
+    public boolean isAlive() {
         return alive;
     }
 
-    /* TODO add this function to the UML document
+    /*
      * Private helper function to get the angle of the bird image
      * based on its velocity.
      */
