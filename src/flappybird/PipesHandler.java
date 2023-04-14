@@ -29,17 +29,31 @@ public class PipesHandler {
      * Runs every frame.
      * @return true if a point should be awarded.
      */
-    public boolean movePipes(Bird bird) { // TODO note that this function needs bird parameter on UML
-
-        pipeGraphics.moveBy(-PIPE_VELOCITY, 0); // Move the graphics
+    public boolean movePipes(Bird bird) { // TODO note that this function needs bird parameter on UML doc
 
         for (Pipe pipe : pipes) {
+            
+            pipe.getGraphic().moveBy(-PIPE_VELOCITY, 0); // Move the graphics of the pipes
+            pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
             
             if (pipe.testHit(bird)) { // TODO figure out death logic and add that here!
                 return false;
             }
+            
+        }
 
-            pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
+        //TODO remove offscreen pipes from the canvas BEFORE removing them from the list.
+
+        //Check if a pipe has gone off screen, if so remove those pipes from the list and generate new pipes!
+        List<Pipe> onScreenPipes = new ArrayList<>();
+        onScreenPipes.addAll(pipes.stream()
+                                .filter(pipe -> (pipe.getX() >= -80))
+                                .toList());
+        
+        System.out.println(onScreenPipes);
+        if (pipes.size() != onScreenPipes.size()) {
+            pipes = onScreenPipes;
+            generatePipes(randomRange());
         }
 
         //Check if a pipe just passed the bird, and return true if it did (to reward a point):
@@ -52,7 +66,6 @@ public class PipesHandler {
      */
     public void generatePipes(int rangeCenter) {// TODO add parameter to UML document
 
-        //TODO generate two pipes and add them to pipes
         Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true);
         pipes.add(upPipe);
         pipeGraphics.add(upPipe.getGraphic());

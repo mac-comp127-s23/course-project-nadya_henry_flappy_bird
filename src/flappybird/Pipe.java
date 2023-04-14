@@ -14,7 +14,7 @@ public class Pipe {
         x = PipesHandler.PIPE_INIT_X;
 
         if (pointingUP) edge -= 5;
-        Rectangle end = new Rectangle(x, edge, 70, 35);
+        Rectangle end = new Rectangle(PipesHandler.PIPE_INIT_X, edge, 70, 35);
         end.setFillColor(new Color(33, 173, 22));
         pipeGraphic.add(end);
 
