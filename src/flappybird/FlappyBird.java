@@ -5,6 +5,8 @@ import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.events.Key;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 public class FlappyBird {
 
@@ -17,12 +19,14 @@ public class FlappyBird {
     private GraphicsText pointsText;
     private Rectangle groundRect;
     private Image backgroundImg;
+    private ImageIcon popupIcon; // TODO add to uml
 
     private Bird bird;
     private PipesHandler pipesHandler;
 
     public FlappyBird() {
         canvas = new CanvasWindow("Flappy Bird", CANVAS_WIDTH, CANVAS_HEIGHT);
+        popupIcon = new ImageIcon("res/deadBird.png", "Flappy Bird Icon");
         
         reset();
         canvas.onMouseDown(event -> bird.flap());
@@ -34,7 +38,7 @@ public class FlappyBird {
             bird.move();
             if (pipesHandler.movePipes(bird)) points += 1;
             updatePointsText();
-            if (!bird.isAlive()) reset();
+            if (!bird.isAlive()) gameOver();
         };
         canvas.animate(mainGameplayLoop);
 
@@ -67,8 +71,13 @@ public class FlappyBird {
         canvas.add(bird.getGraphic());
     }
 
-    private void gameOver(boolean isAlive) {
-        reset();
+    private void gameOver() {
+        boolean playAgain = (JOptionPane.showConfirmDialog(
+            null,
+            "Game Over! You earned " + points + " points!\nPlay again?",
+            "Game Over!", JOptionPane.YES_NO_OPTION, 0, popupIcon) == 0);
+        if (playAgain) reset();
+        else canvas.closeWindow();
     }
 
     private void updatePointsText() {
