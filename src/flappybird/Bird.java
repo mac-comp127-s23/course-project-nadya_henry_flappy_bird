@@ -20,7 +20,7 @@ public class Bird {
         graphics = new GraphicsGroup();
 
         hitBox = new Rectangle(BIRD_X, 350, BIRD_WIDTH, BIRD_WIDTH);
-        hitBox.setStroked(false); // Comment out this line to see hitBox
+        // hitBox.setStroked(false); // Comment out this line to see hitBox
         hitBox.setFilled(false);
         graphics.add(hitBox);
 

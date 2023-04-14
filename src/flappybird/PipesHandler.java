@@ -12,12 +12,11 @@ public class PipesHandler {
     public static final int PIPE_INIT_X = 650;
     public static final int PIPE_VELOCITY = 5;
 
-
     private static Random random;
-    private List<Pipe> pipes;
+    private List<Pipe> pipes; //TODO change to a queue. That's Kynan's job though.
     private GraphicsGroup pipeGraphics;
 
-    public PipesHandler() {
+    public PipesHandler() { //TODO remove "removePipe" from uml (deleted)
         random = new Random();
         pipes = new ArrayList<>();
         pipeGraphics = new GraphicsGroup();
@@ -43,22 +42,12 @@ public class PipesHandler {
             
         }
 
-        
         //Check if a pipe has gone off screen, if so remove those pipes from the list and generate new pipes!
         if (pipes.get(0).getX() <= -80) {
             pipes.remove(0);
             pipes.remove(0);
             generatePipes(randomRange(), PIPE_INIT_X);
         }
-
-
-
-
-
-
-
-
-       
 
         //Check if a pipe just passed the bird, and return true if it did (to reward a point):
         for (Pipe pipe : pipes) if (pipe.getX() == Bird.BIRD_X) return true;
@@ -77,17 +66,8 @@ public class PipesHandler {
         pipeGraphics.add(downPipe.getGraphic());
     }
 
-
-
     public GraphicsGroup getGraphic() {
         return pipeGraphics;
-    }
-
-    /*
-     * Returns true if pipes have gone off of the screen.
-     */
-    private boolean removePipe() {
-        return true;
     }
 
     /*
