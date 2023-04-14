@@ -1,5 +1,6 @@
 package flappybird;
 
+import edu.macalester.graphics.Ellipse;
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
@@ -10,7 +11,7 @@ public class Bird {
     public static final double BIRD_WIDTH = 60;
     
     private GraphicsGroup graphics;
-    private Rectangle hitBox;
+    private Ellipse hitBox;
     private Image birdPic;
     private double velocity;
     private boolean alive;
@@ -19,14 +20,13 @@ public class Bird {
         alive = true;
         graphics = new GraphicsGroup();
 
-        hitBox = new Rectangle(BIRD_X, 350, BIRD_WIDTH, BIRD_WIDTH);
+        hitBox = new Ellipse(BIRD_X, 350, BIRD_WIDTH, BIRD_WIDTH);
         // hitBox.setStroked(false); // Comment out this line to see hitBox
-        hitBox.setFilled(false);
         graphics.add(hitBox);
 
         birdPic = new Image("flappyBird.png");
         birdPic.setScale(0.1);
-        birdPic.setCenter(BIRD_X + (BIRD_WIDTH/2), 350 + (BIRD_WIDTH/2));
+        birdPic.setCenter(BIRD_X + (BIRD_WIDTH/2) + 5, 350 + (BIRD_WIDTH/2) - 5);
         graphics.add(birdPic);
     }
 
