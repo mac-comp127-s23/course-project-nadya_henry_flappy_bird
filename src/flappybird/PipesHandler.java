@@ -95,6 +95,6 @@ public class PipesHandler {
      * directly between two new pipes.
      */
     private int randomRange() {
-        return random.nextInt(200, 500);
+        return random.nextInt(100, 650);
     }
 }
