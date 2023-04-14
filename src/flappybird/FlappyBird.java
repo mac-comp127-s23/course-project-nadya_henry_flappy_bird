@@ -20,6 +20,7 @@ public class FlappyBird {
     private Rectangle groundRect;
     private Image backgroundImg;
     private ImageIcon popupIcon; // TODO add to uml
+    private boolean running; // TODO add to uml
 
     private Bird bird;
     private PipesHandler pipesHandler;
@@ -27,6 +28,7 @@ public class FlappyBird {
     public FlappyBird() {
         canvas = new CanvasWindow("Flappy Bird", CANVAS_WIDTH, CANVAS_HEIGHT);
         popupIcon = new ImageIcon("res/deadBird.png", "Flappy Bird Icon");
+        running = true;
         
         reset();
         canvas.onMouseDown(event -> bird.flap());
@@ -38,10 +40,9 @@ public class FlappyBird {
             bird.move();
             if (pipesHandler.movePipes(bird)) points += 1;
             updatePointsText();
-            if (!bird.isAlive()) gameOver();
+            if (!bird.isAlive() && running) gameOver();
         };
         canvas.animate(mainGameplayLoop);
-
     }
 
     private void reset() {
@@ -77,7 +78,10 @@ public class FlappyBird {
             "Game Over! You earned " + points + " points!\nPlay again?",
             "Game Over!", JOptionPane.YES_NO_OPTION, 0, popupIcon) == 0);
         if (playAgain) reset();
-        else canvas.closeWindow();
+        else {
+            running = false;
+            canvas.closeWindow();
+        } 
     }
 
     private void updatePointsText() {
