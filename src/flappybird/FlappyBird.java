@@ -29,7 +29,7 @@ public class FlappyBird {
 
         // Add background image
         backgroundImg = new Image("flappyBirdBckg2.jpeg");
-        backgroundImg.setPosition(0, 0);
+        // backgroundImg.setPosition(0, 0);
         canvas.add(backgroundImg);
 
 
