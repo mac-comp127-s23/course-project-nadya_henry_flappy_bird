@@ -25,7 +25,7 @@ public class Pipe {
     }
 
     public Pipe(double edge, boolean pointingUP) {
-        new Pipe(edge, pointingUP, PipesHandler.PIPE_INIT_X);
+        this(edge, pointingUP, PipesHandler.PIPE_INIT_X);
     }
 
     /*
