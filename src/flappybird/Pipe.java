@@ -28,13 +28,17 @@ public class Pipe {
         return false; //TODO implement this function
     }
 
-    public double moveX(double moveAmount) {
+    public double moveX(double moveAmount) { // TODO add to UML doc
         x -= moveAmount;
         return x;
     }
 
     public GraphicsGroup getGraphic() { //TODO add to UML doc
         return pipeGraphic;
+    }
+
+    public double getX() { //TODO add to uml doc
+        return x;
     }
 
 }

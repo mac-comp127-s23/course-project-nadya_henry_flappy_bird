@@ -10,7 +10,7 @@ public class PipesHandler {
     
     private static final int PIPE_GAP = 80;
     public static final int PIPE_INIT_X = 650; //TODO adjust these constants!
-    public static final int PIPE_VELOCITY = 4; //TODO add this to UML
+    public static final int PIPE_VELOCITY = 5; //TODO add this to UML
 
 
     private static Random random;
@@ -39,11 +39,12 @@ public class PipesHandler {
                 return false;
             }
 
-            pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved
+            pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
 
         }
 
-        //TODO check if a pipe just passed the bird, and return true if it did (to reward a point)
+        //Check if a pipe just passed the bird, and return true if it did (to reward a point):
+        for (Pipe pipe : pipes) if (pipe.getX() == Bird.BIRD_X) return true;
         return false;
     }
 
