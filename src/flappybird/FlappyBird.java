@@ -63,10 +63,10 @@ public class FlappyBird {
         pointsText.setFontSize(40);
         canvas.add(pointsText);
 
-        bird = new Bird();
-        canvas.add(bird.getGraphic());
         pipesHandler = new PipesHandler();
         canvas.add(pipesHandler.getGraphic());
+        bird = new Bird();
+        canvas.add(bird.getGraphic());
         }
 
     private void gameOver(boolean isAlive) {

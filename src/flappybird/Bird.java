@@ -11,7 +11,7 @@ public class Bird {
     public static final double BIRD_WIDTH = 60;
     
     private GraphicsGroup graphics;
-    private Ellipse hitBox;
+    private Ellipse hitBox; // TODO reflect type change in UML
     private Image birdPic;
     private double velocity;
     private boolean alive;
@@ -21,7 +21,7 @@ public class Bird {
         graphics = new GraphicsGroup();
 
         hitBox = new Ellipse(BIRD_X, 350, BIRD_WIDTH, BIRD_WIDTH);
-        // hitBox.setStroked(false); // Comment out this line to see hitBox
+        hitBox.setStroked(false); // Comment out this line to see hitBox
         graphics.add(hitBox);
 
         birdPic = new Image("flappyBird.png");
