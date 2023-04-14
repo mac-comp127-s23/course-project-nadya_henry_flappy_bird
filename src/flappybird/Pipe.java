@@ -9,7 +9,6 @@ public class Pipe {
     private GraphicsGroup pipeGraphic;
     private double x; 
 
-  
 
     public Pipe(double edge, boolean pointingUP, double x) {
         pipeGraphic = new GraphicsGroup();

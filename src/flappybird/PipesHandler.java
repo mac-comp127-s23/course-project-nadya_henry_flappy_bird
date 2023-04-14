@@ -23,6 +23,7 @@ public class PipesHandler {
         pipeGraphics = new GraphicsGroup();
 
         generatePipes(randomRange());
+        generateinitPipes(randomRange(), (FlappyBird.CANVAS_WIDTH + 80) / 2);
     }
 
     /*
@@ -78,15 +79,13 @@ public class PipesHandler {
 
     }
 
-    public void generateinitPipes(int rangeCenter, double space) {// TODO implement. 
-
-        Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true);
+    public void generateinitPipes(int rangeCenter, double space) {
+        Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, PIPE_INIT_X + space);
         pipes.add(upPipe);
         pipeGraphics.add(upPipe.getGraphic());
-        Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false);
+        Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false, PIPE_INIT_X + space);
         pipes.add(downPipe);
         pipeGraphics.add(downPipe.getGraphic());
-
     }
 
 
