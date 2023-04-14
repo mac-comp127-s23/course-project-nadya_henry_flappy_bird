@@ -23,10 +23,6 @@ public class Pipe {
 
     }
 
-    public Pipe(double edge, boolean pointingUP) {
-        this(edge, pointingUP, PipesHandler.PIPE_INIT_X);
-    }
-
     /*
      * Run every frame, return true if the given bird is touching the pipe.
      */

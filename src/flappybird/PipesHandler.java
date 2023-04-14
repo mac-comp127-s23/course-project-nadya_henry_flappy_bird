@@ -22,8 +22,8 @@ public class PipesHandler {
         pipes = new ArrayList<>();
         pipeGraphics = new GraphicsGroup();
 
-        generatePipes(randomRange());
-        generateinitPipes(randomRange(), (FlappyBird.CANVAS_WIDTH + 80) / 2);
+        generatePipes(randomRange(), PIPE_INIT_X);
+        generatePipes(randomRange(), PIPE_INIT_X + (FlappyBird.CANVAS_WIDTH + 80) / 2);
     }
 
     /*
@@ -48,7 +48,7 @@ public class PipesHandler {
         if (pipes.get(0).getX() <= -80) {
             pipes.remove(0);
             pipes.remove(0);
-            generatePipes(randomRange());
+            generatePipes(randomRange(), PIPE_INIT_X);
         }
 
 
@@ -66,24 +66,13 @@ public class PipesHandler {
     }
 
     /*
-     * Create two new pipes and add them to pipes.
+     * Create two new pipes at the given x coordinate and add them to pipes.
      */
-    public void generatePipes(int rangeCenter) {
-
-        Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true);
+    public void generatePipes(int rangeCenter, double x) { //TODO add new parameter to UML doc
+        Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, x);
         pipes.add(upPipe);
         pipeGraphics.add(upPipe.getGraphic());
-        Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false);
-        pipes.add(downPipe);
-        pipeGraphics.add(downPipe.getGraphic());
-
-    }
-
-    public void generateinitPipes(int rangeCenter, double space) {
-        Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, PIPE_INIT_X + space);
-        pipes.add(upPipe);
-        pipeGraphics.add(upPipe.getGraphic());
-        Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false, PIPE_INIT_X + space);
+        Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false, x);
         pipes.add(downPipe);
         pipeGraphics.add(downPipe.getGraphic());
     }
