@@ -38,7 +38,12 @@ public class Bird {
         graphics.moveBy(0, -velocity);
         velocity -= 0.5;
 
-        //TODO check if the bird hits the ground here.
+        // check if the bird hits the ground here.
+        // if (hitBox.getY() + hitBox.getHeight() >= FlappyBird.GROUND_Y) {
+        //     velocity = 0;
+        //     graphics.setPosition(BIRD_X, FlappyBird.GROUND_Y - BIRD_WIDTH);
+            // isGameOver = true;
+        }
         
     }
 
