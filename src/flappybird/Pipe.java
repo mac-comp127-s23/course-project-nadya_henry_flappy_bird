@@ -9,11 +9,16 @@ public class Pipe {
     private GraphicsGroup pipeGraphic;
     private double x; //TODO add this variable to UML document
 
-    public Pipe(double edge) {
+    public Pipe(double edge, boolean pointingUP) { // TODO Add boolean up variable to the UML document
         pipeGraphic = new GraphicsGroup();
         x = PipesHandler.PIPE_INIT_X;
 
-        //TODO make a pipe graphic using 2 rectangles
+        if (pointingUP) edge -= 5;
+        Rectangle end = new Rectangle(x, edge, 70, 35);
+        end.setFillColor(new Color(33, 173, 22));
+        pipeGraphic.add(end);
+
+        //TODO make the second rectangle
     }
 
     /*
@@ -26,6 +31,10 @@ public class Pipe {
     public double moveX(double moveAmount) {
         x -= moveAmount;
         return x;
+    }
+
+    public GraphicsGroup getGraphic() { //TODO add to UML doc
+        return pipeGraphic;
     }
 
 }

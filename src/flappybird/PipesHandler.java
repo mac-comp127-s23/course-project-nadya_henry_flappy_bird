@@ -8,9 +8,9 @@ import edu.macalester.graphics.GraphicsGroup;
 
 public class PipesHandler {
     
-    private static final int PIPE_GAP = 50;
-    public static final int PIPE_INIT_X = 1000; //TODO decide on these constants!
-    public static final int PIPE_VELOCITY = 10; //TODO add this to UML
+    private static final int PIPE_GAP = 80;
+    public static final int PIPE_INIT_X = 650; //TODO adjust these constants!
+    public static final int PIPE_VELOCITY = 4; //TODO add this to UML
 
 
     private static Random random;
@@ -20,6 +20,9 @@ public class PipesHandler {
     public PipesHandler() {
         random = new Random();
         pipes = new ArrayList<>();
+        pipeGraphics = new GraphicsGroup();
+
+        generatePipes(randomRange());
     }
 
     /*
@@ -47,10 +50,20 @@ public class PipesHandler {
     /*
      * Create two new pipes and add them to pipes.
      */
-    public void generatePipes() {
-        //TODO generate two pipes and add them to pipes
+    public void generatePipes(int rangeCenter) {// TODO add parameter to UML document
 
-        //TODO add the graphics of those pipes to pipesGraphics
+        //TODO generate two pipes and add them to pipes
+        Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true);
+        pipes.add(upPipe);
+        pipeGraphics.add(upPipe.getGraphic());
+        Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false);
+        pipes.add(downPipe);
+        pipeGraphics.add(downPipe.getGraphic());
+
+    }
+
+    public GraphicsGroup getGraphic() { //TODO add to UML doc
+        return pipeGraphics;
     }
 
     /*
@@ -65,6 +78,6 @@ public class PipesHandler {
      * directly between two new pipes.
      */
     private int randomRange() {
-        return random.nextInt(10, 50); //TODO figure out this range actually :)
+        return random.nextInt(200, 500);
     }
 }

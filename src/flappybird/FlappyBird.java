@@ -24,8 +24,13 @@ public class FlappyBird {
             if (event.getKey().equals(Key.SPACE)) bird.flap();
         });
 
+        pipesHandler = new PipesHandler();
+        canvas.add(pipesHandler.getGraphic());
+
+
         Runnable mainGameplayLoop = () -> {
             bird.move();
+            pipesHandler.movePipes(bird);
         };
         canvas.animate(mainGameplayLoop);
 
