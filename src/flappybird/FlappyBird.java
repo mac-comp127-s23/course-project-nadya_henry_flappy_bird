@@ -1,7 +1,5 @@
 package flappybird;
 
-import java.awt.Color;
-
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.events.Key;
@@ -45,18 +43,18 @@ public class FlappyBird {
     private void reset() {
         canvas.removeAll();
 
-         // Add background image
-         backgroundImg = new Image("flappyBirdBckg2.jpeg");
-         // backgroundImg.setPosition(0, 0);
-         canvas.add(backgroundImg);
+        // Add background image
+        backgroundImg = new Image("flappyBirdBckg2.jpeg");
+        // backgroundImg.setPosition(0, 0);
+        canvas.add(backgroundImg);
  
  
-         // Add ground rectangle
-         groundRect = new Rectangle(0, GROUND_Y, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y);
-         groundRect.setStroked(false); 
-         groundRect.setFilled(false);
-         // groundRect.setFillColor(Color.WHITE);
-         canvas.add(groundRect);
+        // Add ground rectangle
+        groundRect = new Rectangle(0, GROUND_Y, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y);
+        groundRect.setStroked(false); 
+        groundRect.setFilled(false);
+        // groundRect.setFillColor(Color.WHITE);
+        canvas.add(groundRect);
 
         points = 0;
         pointsText = new GraphicsText("" + points, 22, 45);
@@ -67,7 +65,7 @@ public class FlappyBird {
         canvas.add(pipesHandler.getGraphic());
         bird = new Bird();
         canvas.add(bird.getGraphic());
-        }
+    }
 
     private void gameOver(boolean isAlive) {
         reset();

@@ -27,7 +27,10 @@ public class Pipe {
      * Run every frame, return true if the given bird is touching the pipe.
      */
     public boolean testHit(Bird bird) {
-        return false; //TODO implement this function
+        return false; //TODO implement this function! :)
+
+        // return pipeGraphic.testHitInLocalCoordinates(x, y)
+        // we will probably use the above method of GraphicsGroup. :)
     }
 
     public double moveX(double moveAmount) { 

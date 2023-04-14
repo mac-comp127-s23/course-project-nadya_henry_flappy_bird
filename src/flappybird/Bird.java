@@ -1,9 +1,8 @@
 package flappybird;
 
-import edu.macalester.graphics.Ellipse;
 import edu.macalester.graphics.GraphicsGroup;
+import edu.macalester.graphics.Ellipse;
 import edu.macalester.graphics.Image;
-import edu.macalester.graphics.Rectangle;
 
 public class Bird {
 
@@ -44,8 +43,7 @@ public class Bird {
         if ((graphics.getY() + 300) + hitBox.getHeight() >= FlappyBird.GROUND_Y) {
             velocity = 0;
             alive = false;
-        }
-        
+        }   
     }
 
     /*
