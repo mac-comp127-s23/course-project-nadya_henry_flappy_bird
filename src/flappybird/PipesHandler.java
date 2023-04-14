@@ -16,7 +16,7 @@ public class PipesHandler {
     private List<Pipe> pipes; //TODO change to a queue. That's Kynan's job though.
     private GraphicsGroup pipeGraphics;
 
-    public PipesHandler() { //TODO remove "removePipe" from uml (deleted)
+    public PipesHandler() { //TODO remove "removePipe" from uml (deleted method)
         random = new Random();
         pipes = new ArrayList<>();
         pipeGraphics = new GraphicsGroup();
