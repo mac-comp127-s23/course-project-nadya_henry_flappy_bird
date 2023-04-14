@@ -40,7 +40,6 @@ public class PipesHandler {
             }
 
             pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
-
         }
 
         //Check if a pipe just passed the bird, and return true if it did (to reward a point):

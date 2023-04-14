@@ -29,7 +29,7 @@ public class Pipe {
     }
 
     public double moveX(double moveAmount) { // TODO add to UML doc
-        x -= moveAmount;
+        x += moveAmount;
         return x;
     }
 
