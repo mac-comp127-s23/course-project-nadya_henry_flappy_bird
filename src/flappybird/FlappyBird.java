@@ -18,7 +18,6 @@ public class FlappyBird {
     private int points;
     private GraphicsText pointsText; //TODO add to UML doc
     private Rectangle groundRect;
-    // private Image groundImg;
     private Image backgroundImg;
 
     private Bird bird;
@@ -26,23 +25,40 @@ public class FlappyBird {
 
     public FlappyBird() {
         canvas = new CanvasWindow("Flappy Bird", CANVAS_WIDTH, CANVAS_HEIGHT);
-
-        // Add background image
-        backgroundImg = new Image("flappyBirdBckg2.jpeg");
-        // backgroundImg.setPosition(0, 0);
-        canvas.add(backgroundImg);
-
-
-        // Add ground rectangle
-        groundRect = new Rectangle(0, GROUND_Y, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y);
-        groundRect.setStroked(false); 
-        groundRect.setFilled(false);
-        // groundRect.setFillColor(Color.WHITE);
-        canvas.add(groundRect);
-
-        
-
         //TODO most of the code below should be moved to a Reset Game function. :)
+        
+        reset();
+        canvas.onMouseDown(event -> bird.flap());
+        canvas.onKeyDown(event -> {
+            if (event.getKey().equals(Key.SPACE)) bird.flap();
+        });
+
+        Runnable mainGameplayLoop = () -> {
+            bird.move();
+            if (pipesHandler.movePipes(bird)) points += 1;
+            updatePointsText();
+            if (!bird.isAlive()) reset();
+        };
+        canvas.animate(mainGameplayLoop);
+
+    }
+
+    //TODO make a reset game function and think about what that needs to do
+    private void reset() {
+        canvas.removeAll();
+
+         // Add background image
+         backgroundImg = new Image("flappyBirdBckg2.jpeg");
+         // backgroundImg.setPosition(0, 0);
+         canvas.add(backgroundImg);
+ 
+ 
+         // Add ground rectangle
+         groundRect = new Rectangle(0, GROUND_Y, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y);
+         groundRect.setStroked(false); 
+         groundRect.setFilled(false);
+         // groundRect.setFillColor(Color.WHITE);
+         canvas.add(groundRect);
 
         points = 0;
         pointsText = new GraphicsText("" + points, 22, 45);
@@ -51,29 +67,12 @@ public class FlappyBird {
 
         bird = new Bird();
         canvas.add(bird.getGraphic());
-        canvas.onMouseDown(event -> bird.flap());
-        canvas.onKeyDown(event -> {
-            if (event.getKey().equals(Key.SPACE)) bird.flap();
-        });
-
         pipesHandler = new PipesHandler();
         canvas.add(pipesHandler.getGraphic());
+        }
 
-
-        Runnable mainGameplayLoop = () -> {
-            bird.move();
-            if (pipesHandler.movePipes(bird)) points += 1;
-            updatePointsText();
-        };
-        canvas.animate(mainGameplayLoop);
-
-    }
-
-    //TODO make a reset game function and think about what that needs to do
-   
-
-    private void gameOver() { //TODO add to uml
-        
+    private void gameOver(boolean isAlive) { //TODO add to uml
+        reset();
     }
 
     private void updatePointsText() { //TODO add to uml

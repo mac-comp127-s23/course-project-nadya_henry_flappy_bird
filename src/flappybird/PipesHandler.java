@@ -42,17 +42,22 @@ public class PipesHandler {
             
         }
 
-        //TODO remove offscreen pipes from the canvas BEFORE removing them from the list.
-
+        
         //Check if a pipe has gone off screen, if so remove those pipes from the list and generate new pipes!
-        List<Pipe> onScreenPipes = new ArrayList<>();
-        onScreenPipes.addAll(pipes.stream()
-                                .filter(pipe -> (pipe.getX() >= -80))
-                                .toList());
-        if (pipes.size() != onScreenPipes.size()) {
-            pipes = onScreenPipes;
+        if (pipes.get(0).getX() <= -80) {
+            pipes.remove(0);
+            pipes.remove(0);
             generatePipes(randomRange());
         }
+
+
+
+
+
+
+
+
+       
 
         //Check if a pipe just passed the bird, and return true if it did (to reward a point):
         for (Pipe pipe : pipes) if (pipe.getX() == Bird.BIRD_X) return true;
@@ -62,7 +67,7 @@ public class PipesHandler {
     /*
      * Create two new pipes and add them to pipes.
      */
-    public void generatePipes(int rangeCenter) {// TODO add parameter to UML document
+    public void generatePipes(int rangeCenter) {
 
         Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true);
         pipes.add(upPipe);
@@ -72,6 +77,19 @@ public class PipesHandler {
         pipeGraphics.add(downPipe.getGraphic());
 
     }
+
+    public void generateinitPipes(int rangeCenter, double space) {// TODO implement. 
+
+        Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true);
+        pipes.add(upPipe);
+        pipeGraphics.add(upPipe.getGraphic());
+        Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false);
+        pipes.add(downPipe);
+        pipeGraphics.add(downPipe.getGraphic());
+
+    }
+
+
 
     public GraphicsGroup getGraphic() { //TODO add to UML doc
         return pipeGraphics;
