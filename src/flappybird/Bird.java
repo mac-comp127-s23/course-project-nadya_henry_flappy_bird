@@ -13,8 +13,10 @@ public class Bird {
     private Rectangle hitBox;
     private Image birdPic;
     private double velocity;
+    private boolean alive; // TODO add to uml
 
     public Bird() {
+        alive = true;
         graphics = new GraphicsGroup();
 
         hitBox = new Rectangle(BIRD_X, 350, BIRD_WIDTH, BIRD_WIDTH);
@@ -39,11 +41,11 @@ public class Bird {
         velocity -= 0.5;
 
         // check if the bird hits the ground here.
-        // if (hitBox.getY() + hitBox.getHeight() >= FlappyBird.GROUND_Y) {
-        //     velocity = 0;
-        //     graphics.setPosition(BIRD_X, FlappyBird.GROUND_Y - BIRD_WIDTH);
-            // isGameOver = true;
-        // }
+        if (hitBox.getY() + hitBox.getHeight() >= FlappyBird.GROUND_Y) {
+            velocity = 0;
+            graphics.setPosition(BIRD_X, FlappyBird.GROUND_Y - BIRD_WIDTH);
+            alive = false;
+        }
         
     }
 
@@ -56,6 +58,10 @@ public class Bird {
 
     public GraphicsGroup getGraphic() {
         return graphics;
+    }
+
+    public boolean isAlive() { // TODO add to uml
+        return alive;
     }
 
     /* TODO add this function to the UML document

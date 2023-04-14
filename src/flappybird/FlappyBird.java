@@ -72,6 +72,9 @@ public class FlappyBird {
     //TODO make a reset game function and think about what that needs to do
    
 
+    private void gameOver() { //TODO add to uml
+        
+    }
 
     private void updatePointsText() { //TODO add to uml
         pointsText.setText("" + points);
