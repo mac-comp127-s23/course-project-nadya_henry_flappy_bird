@@ -27,28 +27,22 @@ public class PipesHandler {
 
     /*
      * Runs every frame.
-     * @return true if a point should be awarded.
+     * Return true if a point should be awarded.
      */
     public boolean movePipes(Bird bird) {
-
         for (Pipe pipe : pipes) {
-            
             pipe.getGraphic().moveBy(-PIPE_VELOCITY, 0); // Move the graphics of the pipes
             pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
-            
-            if (pipe.testHit(bird) && bird.isAlive()) { // TODO figure out death logic and add that here!
+            if (pipe.testHit(bird)) {
                 bird.kill();
             }
-            
         }
-
         //Check if a pipe has gone off screen, if so remove those pipes from the list and generate new pipes!
         if (pipes.get(0).getX() <= -80) {
             pipes.remove(0);
             pipes.remove(0);
             generatePipes(randomRange(), PIPE_INIT_X);
         }
-
         //Check if a pipe just passed the bird, and return true if it did (to reward a point):
         for (Pipe pipe : pipes) if (pipe.getX() == Bird.BIRD_X) return true;
         return false;

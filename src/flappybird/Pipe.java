@@ -26,11 +26,6 @@ public class Pipe {
         Rectangle opening = new Rectangle(x, edge, 70, 35);
         opening.setFillColor(COLOR);
         pipeGraphic.add(opening);
-
-
-
-        //TODO make the second rectangle
-
     }
 
     /*

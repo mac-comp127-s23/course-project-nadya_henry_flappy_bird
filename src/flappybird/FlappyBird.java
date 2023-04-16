@@ -5,6 +5,7 @@ import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.events.Key;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
+
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
@@ -49,29 +50,27 @@ public class FlappyBird {
         points = 0;
         canvas.removeAll();
 
+
+        // Draw things in the order they should be drawn
+
         // Add background image
         backgroundImg = new Image("flappyBirdBckg2.jpeg");
-        // backgroundImg.setPosition(0, 0);
         canvas.add(backgroundImg);
- 
- 
-        // Add ground rectangle
-        groundRect = new Rectangle(0, GROUND_Y, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y);
-        groundRect.setStroked(false); 
-        groundRect.setFilled(false);
-        // groundRect.setFillColor(Color.WHITE);
-        canvas.add(groundRect);
-
         // Add pipes handler
         pipesHandler = new PipesHandler();
         canvas.add(pipesHandler.getGraphic());
-        // Add bird
-        bird = new Bird();
-        canvas.add(bird.getGraphic());
         // Add points text
         pointsText = new GraphicsText("" + points, 22, 45);
         pointsText.setFontSize(40);
         canvas.add(pointsText);
+        // Add ground rectangle
+        groundRect = new Rectangle(0, GROUND_Y + 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y);
+        groundRect.setStroked(false); 
+        groundRect.setFillColor(Pipe.COLOR);
+        canvas.add(groundRect);
+        // Add bird
+        bird = new Bird();
+        canvas.add(bird.getGraphic());
     }
 
     private void gameOver() {
