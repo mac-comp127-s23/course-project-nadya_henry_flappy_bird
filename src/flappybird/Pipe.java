@@ -30,8 +30,8 @@ public class Pipe {
         // TODO modify this function so that it looks at the points on the edge of the hitbox of the bird,
         // rather than just the center of the bird. :)
 
-        return (pipeGraphic.getElementAt(Bird.BIRD_X, bird.getBirdHeight()) != null);
-        
+        return (pipeGraphic.getElementAt(Bird.BIRD_X + (Bird.BIRD_WIDTH/2), bird.getBirdHeight()) != null);
+
     }
 
     public double moveX(double moveAmount) { 

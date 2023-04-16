@@ -54,6 +54,13 @@ public class Bird {
         velocity = 6.9;
     }
 
+    /*
+     * Sets alive to false :(
+     */
+    protected void kill() {
+        alive = false;
+    }
+
     public GraphicsGroup getGraphic() {
         return graphics;
     }

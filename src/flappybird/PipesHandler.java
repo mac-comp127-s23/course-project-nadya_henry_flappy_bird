@@ -36,8 +36,8 @@ public class PipesHandler {
             pipe.getGraphic().moveBy(-PIPE_VELOCITY, 0); // Move the graphics of the pipes
             pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
             
-            if (pipe.testHit(bird)) { // TODO figure out death logic and add that here!
-                System.out.println("HIT!");
+            if (pipe.testHit(bird) && bird.isAlive()) { // TODO figure out death logic and add that here!
+                bird.kill();
             }
             
         }
