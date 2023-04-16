@@ -74,4 +74,10 @@ public class PipesHandler {
     private int randomRange() {
         return random.nextInt(100, 650);
     }
+
+    //TODO: make toString() better
+    @Override
+    public String toString() {
+        return pipes.toString();
+    }
 }

@@ -57,4 +57,9 @@ public class Pipe {
         return x;
     }
 
+    //TODO: make toString() better
+    @Override
+    public String toString() {
+        return pipeGraphic.toString();
+    }
 }

@@ -105,6 +105,12 @@ public class FlappyBird {
         pointsText.setText("" + points);
     }
 
+    //TODO: make toString() better
+    @Override
+    public String toString() {
+        return canvas.toString();
+    }
+
     public static void main(String[] args) {
         new FlappyBird();
     }

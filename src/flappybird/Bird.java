@@ -85,4 +85,9 @@ public class Bird {
         return (-velocity) / (0.5) - 10;
     }
 
+    //TODO: make toString() better
+    @Override
+    public String toString() {
+        return graphics.toString();
+    }
 }
