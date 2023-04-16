@@ -12,7 +12,7 @@ public class FlappyBird {
 
     public static final int CANVAS_WIDTH = 640;
     public static final int CANVAS_HEIGHT = 980;
-    public static final int GROUND_Y = 790;
+    public static final int GROUND_Y = 750;
 
     private CanvasWindow canvas;
     private int points;
@@ -81,7 +81,7 @@ public class FlappyBird {
         else {
             running = false;
             canvas.closeWindow();
-        } 
+        }
     }
 
     private void updatePointsText() {

@@ -18,14 +18,15 @@ public class Bird {
     public Bird() {
         alive = true;
         graphics = new GraphicsGroup();
+        graphics.setCenter(BIRD_X, 350);
 
-        hitBox = new Ellipse(BIRD_X, 350, BIRD_WIDTH, BIRD_WIDTH);
-        hitBox.setStroked(false); // Comment out this line to see hitBox
+        hitBox = new Ellipse(0, 0, BIRD_WIDTH, BIRD_WIDTH);
+        // hitBox.setStroked(false); // Comment out this line to see hitBox
         graphics.add(hitBox);
 
         birdPic = new Image("flappyBird.png");
         birdPic.setScale(0.1);
-        birdPic.setCenter(BIRD_X + (BIRD_WIDTH/2) + 5, 350 + (BIRD_WIDTH/2) - 5);
+        birdPic.setCenter((BIRD_WIDTH/2) + 5, (BIRD_WIDTH/2) - 5);
         graphics.add(birdPic);
     }
 
@@ -40,10 +41,10 @@ public class Bird {
         velocity -= 0.5;
 
         // check if the bird hits the ground here.
-        if ((graphics.getY() + 322) + hitBox.getHeight() >= FlappyBird.GROUND_Y) {
+        if (graphics.getY() >= FlappyBird.GROUND_Y) {
             velocity = 0;
             alive = false;
-        }   
+        }
     }
 
     /*
@@ -59,6 +60,10 @@ public class Bird {
 
     public boolean isAlive() {
         return alive;
+    }
+
+    public double getBirdHeight() { //TODO add to uml
+        return graphics.getCenter().getY();
     }
 
     /*
