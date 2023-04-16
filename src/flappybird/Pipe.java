@@ -26,12 +26,11 @@ public class Pipe {
      * Run every frame, return true if the given bird is touching the pipe.
      */
     public boolean testHit(Bird bird) {
-        System.out.println(bird.getBirdHeight());
-        return false; //TODO implement this function! :)
 
-        // return pipeGraphic.testHitInLocalCoordinates(x, y)
-        // we will probably use the above method of GraphicsGroup. :)
-        
+        // TODO modify this function so that it looks at the points on the edge of the hitbox of the bird,
+        // rather than just the center of the bird. :)
+
+        return (pipeGraphic.getElementAt(Bird.BIRD_X, bird.getBirdHeight()) != null);
         
     }
 

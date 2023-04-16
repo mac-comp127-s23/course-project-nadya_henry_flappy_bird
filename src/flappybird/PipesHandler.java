@@ -37,7 +37,7 @@ public class PipesHandler {
             pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
             
             if (pipe.testHit(bird)) { // TODO figure out death logic and add that here!
-                return false;
+                System.out.println("HIT!");
             }
             
         }
