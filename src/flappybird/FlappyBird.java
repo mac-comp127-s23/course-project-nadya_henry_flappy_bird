@@ -29,19 +29,27 @@ public class FlappyBird {
     public FlappyBird() {
         canvas = new CanvasWindow("Flappy Bird", CANVAS_WIDTH, CANVAS_HEIGHT);
         popupIcon = new ImageIcon("res/deadBird.png", "Flappy Bird Icon");
-        running = true;
+        running = false;
         
         reset();
-        canvas.onMouseDown(event -> bird.flap());
+        canvas.onMouseDown(event -> {
+            if (!running) running = true;
+            bird.flap();
+        } );
         canvas.onKeyDown(event -> {
-            if (event.getKey().equals(Key.SPACE)) bird.flap();
+            if (event.getKey().equals(Key.SPACE)) {
+                if (!running) running = true;
+                bird.flap();
+            }
         });
 
         Runnable mainGameplayLoop = () -> {
-            bird.move();
-            if (pipesHandler.movePipes(bird)) points += 1;
-            updatePointsText();
-            if (!bird.isAlive() && running) gameOver();
+            if (running) {
+                bird.move();
+                if (pipesHandler.movePipes(bird)) points += 1;
+                updatePointsText();
+                if (!bird.isAlive()) gameOver();
+            }
         };
         canvas.animate(mainGameplayLoop);
     }

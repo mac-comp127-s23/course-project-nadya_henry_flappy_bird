@@ -22,7 +22,7 @@ public class PipesHandler {
         pipeGraphics = new GraphicsGroup();
 
         generatePipes(randomRange(), PIPE_INIT_X);
-        generatePipes(randomRange(), PIPE_INIT_X + (FlappyBird.CANVAS_WIDTH + 80) / 2);
+        generatePipes(randomRange(), PIPE_INIT_X + ((FlappyBird.CANVAS_WIDTH + 80) / 2));
     }
 
     /*
