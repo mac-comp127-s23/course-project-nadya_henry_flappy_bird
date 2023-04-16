@@ -44,7 +44,7 @@ public class Pipe {
 
     }
 
-    public double moveX(double moveAmount) { 
+    protected double moveX(double moveAmount) { 
         x += moveAmount;
         return x;
     }

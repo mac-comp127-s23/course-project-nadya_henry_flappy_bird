@@ -11,10 +11,10 @@ public class Bird {
 
     protected static final double BIRD_X = 200;
     protected static final double BIRD_WIDTH = 60;
-    private final double FLAP_VELO = 6.9; //TODO add to UML
+    private final double FLAP_VELO = 6.9;
     
     private GraphicsGroup graphics;
-    private Ellipse hitBox; // TODO reflect type change in UML
+    private Ellipse hitBox;
     private Image birdPic;
     private double velocity;
     private boolean alive;
@@ -37,7 +37,7 @@ public class Bird {
     /*
      * Runs every frame.
      */
-    public void move() {
+    protected void move() {
 
         birdPic.setRotation(velocityToAngle(velocity));
 
@@ -54,7 +54,7 @@ public class Bird {
     /*
      * Run when user clicks or presses spacebar.
      */
-    public void flap() {
+    protected void flap() {
         velocity = FLAP_VELO;
     }
 
@@ -73,7 +73,7 @@ public class Bird {
         return alive;
     }
 
-    public double getBirdHeight() { //TODO add to uml
+    public double getBirdHeight() {
         return graphics.getCenter().getY();
     }
 

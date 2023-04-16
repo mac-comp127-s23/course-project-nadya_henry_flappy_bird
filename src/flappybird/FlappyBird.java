@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
  */
 public class FlappyBird {
 
-    protected static final int CANVAS_WIDTH = 640; //TODO Change all final vars in UML
+    protected static final int CANVAS_WIDTH = 640;
     protected static final int GROUND_Y = 750; 
     private final int CANVAS_HEIGHT = 980;
     
@@ -24,8 +24,8 @@ public class FlappyBird {
     private GraphicsText pointsText;
     private Rectangle groundRect;
     private Image backgroundImg;
-    private ImageIcon popupIcon; // TODO add to uml
-    private boolean running; // TODO add to uml
+    private ImageIcon popupIcon;
+    private boolean running;
 
     private Bird bird;
     private PipesHandler pipesHandler;
@@ -54,7 +54,7 @@ public class FlappyBird {
         canvas.animate(mainGameplayLoop);
     }
 
-    private void control(boolean flapped){ //TODO add to UML
+    private void control(boolean flapped){
         if (flapped) {
             if (!running) running = true;
             bird.flap();

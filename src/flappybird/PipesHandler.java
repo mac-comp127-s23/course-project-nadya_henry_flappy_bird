@@ -15,11 +15,11 @@ public class PipesHandler {
     private final int PIPE_INIT_X = 650;
     private final int PIPE_VELOCITY = 5;
 
-    private static Random random;
-    private Queue<Pipe> pipes; //TODO change in UML
+    private Random random;
+    private Queue<Pipe> pipes;
     private GraphicsGroup pipeGraphics;
 
-    public PipesHandler() { //TODO remove "removePipe" from uml (deleted method)
+    public PipesHandler() {
         random = new Random();
         pipes = new LinkedList<Pipe>();
         pipeGraphics = new GraphicsGroup();
@@ -32,7 +32,7 @@ public class PipesHandler {
      * Runs every frame.
      * Return true if a point should be awarded.
      */
-    public boolean movePipes(Bird bird) {
+    protected boolean movePipes(Bird bird) {
         for (Pipe pipe : pipes) {
             pipe.getGraphic().moveBy(-PIPE_VELOCITY, 0); // Move the graphics of the pipes
             pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
@@ -54,7 +54,7 @@ public class PipesHandler {
     /*
      * Create two new pipes at the given x coordinate and add them to pipes.
      */
-    public void generatePipes(int rangeCenter, double x) { //TODO add new parameter to UML doc
+    private void generatePipes(int rangeCenter, double x) {
         Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, x);
         pipes.add(upPipe);
         pipeGraphics.add(upPipe.getGraphic());
