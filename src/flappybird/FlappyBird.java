@@ -56,6 +56,7 @@ public class FlappyBird {
 
     private void reset() {
         points = 0;
+        running = false;
         canvas.removeAll();
 
 
