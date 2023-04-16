@@ -21,7 +21,7 @@ public class Bird {
         graphics.setCenter(BIRD_X, 350);
 
         hitBox = new Ellipse(0, 0, BIRD_WIDTH, BIRD_WIDTH);
-        // hitBox.setStroked(false); // Comment out this line to see hitBox
+        hitBox.setStroked(false); // Comment out this line to see hitBox
         graphics.add(hitBox);
 
         birdPic = new Image("flappyBird.png");

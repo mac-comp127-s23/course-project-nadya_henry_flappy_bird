@@ -5,6 +5,8 @@ import edu.macalester.graphics.Rectangle;
 import java.awt.Color;
 
 public class Pipe {
+
+    public static final Color COLOR = new Color(33, 173, 22);
     
     private GraphicsGroup pipeGraphic;
     private double x; 
@@ -13,10 +15,19 @@ public class Pipe {
         pipeGraphic = new GraphicsGroup();
         this.x = x;
 
+        // Draw the long part
+        Rectangle longRect = new Rectangle(x + 12, edge, 45, 1000);
+        longRect.setFillColor(COLOR);
+        if (pointingUP) longRect.moveBy(0, -1000);
+        pipeGraphic.add(longRect); 
+
+        // Draw the opening
         if (pointingUP) edge -= 5;
-        Rectangle end = new Rectangle(x, edge, 70, 35);
-        end.setFillColor(new Color(33, 173, 22));
-        pipeGraphic.add(end);
+        Rectangle opening = new Rectangle(x, edge, 70, 35);
+        opening.setFillColor(COLOR);
+        pipeGraphic.add(opening);
+
+
 
         //TODO make the second rectangle
 
