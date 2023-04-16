@@ -46,6 +46,7 @@ public class FlappyBird {
     }
 
     private void reset() {
+        points = 0;
         canvas.removeAll();
 
         // Add background image
@@ -61,15 +62,16 @@ public class FlappyBird {
         // groundRect.setFillColor(Color.WHITE);
         canvas.add(groundRect);
 
-        points = 0;
+        // Add pipes handler
+        pipesHandler = new PipesHandler();
+        canvas.add(pipesHandler.getGraphic());
+        // Add bird
+        bird = new Bird();
+        canvas.add(bird.getGraphic());
+        // Add points text
         pointsText = new GraphicsText("" + points, 22, 45);
         pointsText.setFontSize(40);
         canvas.add(pointsText);
-
-        pipesHandler = new PipesHandler();
-        canvas.add(pipesHandler.getGraphic());
-        bird = new Bird();
-        canvas.add(bird.getGraphic());
     }
 
     private void gameOver() {
