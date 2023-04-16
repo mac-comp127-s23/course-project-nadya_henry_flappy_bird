@@ -2,11 +2,15 @@ package flappybird;
 
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Rectangle;
+
 import java.awt.Color;
 
+/**
+ * Defines a pipe for a game of Flappy Bird
+ */
 public class Pipe {
 
-    public static final Color COLOR = new Color(33, 173, 22);
+    protected static final Color COLOR = new Color(33, 173, 22);
     
     private GraphicsGroup pipeGraphic;
     private double x; 

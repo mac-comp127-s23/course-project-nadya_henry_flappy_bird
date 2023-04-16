@@ -1,24 +1,27 @@
 package flappybird;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Random;
 
 import edu.macalester.graphics.GraphicsGroup;
 
+/**
+ * Manages the pipes for a game of Flappy Bird
+ */
 public class PipesHandler {
     
-    private static final int PIPE_GAP = 80;
-    public static final int PIPE_INIT_X = 650;
-    public static final int PIPE_VELOCITY = 5;
+    private final int PIPE_GAP = 80;
+    private final int PIPE_INIT_X = 650;
+    private final int PIPE_VELOCITY = 5;
 
     private static Random random;
-    private List<Pipe> pipes; //TODO change to a queue. That's Kynan's job though.
+    private Queue<Pipe> pipes; //TODO change in UML
     private GraphicsGroup pipeGraphics;
 
     public PipesHandler() { //TODO remove "removePipe" from uml (deleted method)
         random = new Random();
-        pipes = new ArrayList<>();
+        pipes = new LinkedList<Pipe>();
         pipeGraphics = new GraphicsGroup();
 
         generatePipes(randomRange(), PIPE_INIT_X);
@@ -38,9 +41,9 @@ public class PipesHandler {
             }
         }
         //Check if a pipe has gone off screen, if so remove those pipes from the list and generate new pipes!
-        if (pipes.get(0).getX() <= -80) {
-            pipes.remove(0);
-            pipes.remove(0);
+        if (pipes.peek().getX() <= -80) {
+            pipes.remove();
+            pipes.remove();
             generatePipes(randomRange(), PIPE_INIT_X);
         }
         //Check if a pipe just passed the bird, and return true if it did (to reward a point):

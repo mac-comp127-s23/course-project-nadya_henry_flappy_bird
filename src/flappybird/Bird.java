@@ -4,10 +4,14 @@ import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Ellipse;
 import edu.macalester.graphics.Image;
 
+/**
+ * Defines a bird for a game of Flappy Bird
+ */
 public class Bird {
 
-    public static final double BIRD_X = 200;
-    public static final double BIRD_WIDTH = 60;
+    protected static final double BIRD_X = 200;
+    protected static final double BIRD_WIDTH = 60;
+    private final double FLAP_VELO = 6.9; //TODO add to UML
     
     private GraphicsGroup graphics;
     private Ellipse hitBox; // TODO reflect type change in UML
@@ -51,7 +55,7 @@ public class Bird {
      * Run when user clicks or presses spacebar.
      */
     public void flap() {
-        velocity = 6.9;
+        velocity = FLAP_VELO;
     }
 
     /*

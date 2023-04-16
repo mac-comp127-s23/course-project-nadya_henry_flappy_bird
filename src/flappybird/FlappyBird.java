@@ -9,11 +9,15 @@ import edu.macalester.graphics.Rectangle;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
+/**
+ * Manages a game of Flappy Bird
+ */
 public class FlappyBird {
 
-    public static final int CANVAS_WIDTH = 640;
-    public static final int CANVAS_HEIGHT = 980;
-    public static final int GROUND_Y = 750;
+    protected static final int CANVAS_WIDTH = 640; //TODO Change all final vars in UML
+    protected static final int GROUND_Y = 750; 
+    private final int CANVAS_HEIGHT = 980;
+    
 
     private CanvasWindow canvas;
     private int points;
@@ -33,14 +37,10 @@ public class FlappyBird {
         
         reset();
         canvas.onMouseDown(event -> {
-            if (!running) running = true;
-            bird.flap();
+            control(!running);
         } );
         canvas.onKeyDown(event -> {
-            if (event.getKey().equals(Key.SPACE)) {
-                if (!running) running = true;
-                bird.flap();
-            }
+            control(event.getKey().equals(Key.SPACE));
         });
 
         Runnable mainGameplayLoop = () -> {
@@ -52,6 +52,13 @@ public class FlappyBird {
             }
         };
         canvas.animate(mainGameplayLoop);
+    }
+
+    private void control(boolean flapped){ //TODO add to UML
+        if (flapped) {
+            if (!running) running = true;
+            bird.flap();
+        }
     }
 
     private void reset() {
