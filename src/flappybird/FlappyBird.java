@@ -93,7 +93,7 @@ public class FlappyBird {
         canvas.add(bird.getGraphic());
     }
 
-    private void gameOver() {
+    private void gameOver() { // TODO add falling bird animation after hitting a pipe :)
         updatePointsText();
         boolean playAgain = (JOptionPane.showConfirmDialog(
             null,

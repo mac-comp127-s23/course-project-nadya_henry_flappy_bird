@@ -20,7 +20,7 @@ public class Pipe {
         if (pointingUP) longImg = new Image("FixedDownPipe.png");
         else longImg = new Image("FixedUpPipe.png");
         longImg.setScale(3.5);
-        longImg.setPosition(x+12, edge);
+        longImg.setPosition(x, edge);
         if (pointingUP) longImg.moveBy(0, -longImg.getImageHeight() * 3.5);
         pipeGraphic.add(longImg);
     }

@@ -11,8 +11,8 @@ import edu.macalester.graphics.GraphicsGroup;
  */
 public class PipesHandler {
     
-    private final int PIPE_GAP = 100;
-    private final int PIPE_INIT_X = 650;
+    private final int PIPE_GAP = 60;
+    private final int PIPE_INIT_X = 675;
     private final int PIPE_VELOCITY = 5;
 
     private Random random;
