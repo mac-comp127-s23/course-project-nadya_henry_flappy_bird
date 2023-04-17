@@ -37,8 +37,8 @@ public class FlappyBird {
         
         reset();
         canvas.onMouseDown(event -> {
-            control(!running);
-        } );
+            control(true);
+        });
         canvas.onKeyDown(event -> {
             control(event.getKey().equals(Key.SPACE));
         });
