@@ -15,12 +15,12 @@ public class Pipe {
     public Pipe(double edge, boolean pointingUP, double x) {
         pipeGraphic = new GraphicsGroup();
         this.x = x;
- 
+
         Image longImg;
         if (pointingUP) longImg = new Image("FixedDownPipe.png");
         else longImg = new Image("FixedUpPipe.png");
         longImg.setScale(3.5);
-        longImg.setPosition(x, edge);
+        longImg.setPosition(x, edge*1.5);
         if (pointingUP) longImg.moveBy(0, -longImg.getImageHeight() * 3.5);
         pipeGraphic.add(longImg);
     }

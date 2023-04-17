@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 public class FlappyBird {
 
     protected static final int CANVAS_WIDTH = 640;
-    protected static final int GROUND_Y = 750; 
+    protected static final int GROUND_Y = 750;
     protected static final int CANVAS_HEIGHT = 980;
     
 

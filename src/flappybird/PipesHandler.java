@@ -61,8 +61,6 @@ public class PipesHandler {
         pipeGraphics.add(downPipe.getGraphic());
     }
 
-    
-
     public GraphicsGroup getGraphic() {
         return pipeGraphics;
     }
