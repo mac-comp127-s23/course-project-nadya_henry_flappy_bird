@@ -36,9 +36,7 @@ public class PipesHandler {
         for (Pipe pipe : pipes) {
             pipe.getGraphic().moveBy(-PIPE_VELOCITY, 0); // Move the graphics of the pipes
             pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
-            if (pipe.testHit(bird)) {
-                bird.kill();
-            }
+            if (pipe.testHit(bird)) bird.kill(); // Test to see if the bird hit a pipe
         }
         //Check if a pipe has gone off screen, if so remove those pipes from the list and generate new pipes!
         if (pipes.peek().getX() <= -80) {

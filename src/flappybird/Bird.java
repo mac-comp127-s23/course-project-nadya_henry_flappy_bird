@@ -76,10 +76,15 @@ public class Bird {
         return alive;
     }
 
+    /*
+     * Returns a list of points that will be checked against pipe graphics
+     * to see if the bird is touching a pipe.
+     */
     public List<Point> getCollisionPoints() {
         return List.of(
-            new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() - 0.25*BIRD_WIDTH),
-            new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() + 0.25*BIRD_WIDTH)
+            new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() - 0.25*BIRD_WIDTH), // Top
+            new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() + 0.25*BIRD_WIDTH), // Bottom
+            new Point(BIRD_X + BIRD_WIDTH, graphics.getCenter().getY()) // Front
         );
     }
 
