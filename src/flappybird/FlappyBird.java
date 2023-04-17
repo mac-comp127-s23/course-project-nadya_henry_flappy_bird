@@ -90,6 +90,7 @@ public class FlappyBird {
     }
 
     private void gameOver() {
+        updatePointsText();
         boolean playAgain = (JOptionPane.showConfirmDialog(
             null,
             "Game Over! You earned " + points + " points!\nPlay again?",
@@ -103,6 +104,7 @@ public class FlappyBird {
 
     private void updatePointsText() {
         pointsText.setText("" + points);
+        canvas.draw();
     }
 
     //TODO: make toString() better
