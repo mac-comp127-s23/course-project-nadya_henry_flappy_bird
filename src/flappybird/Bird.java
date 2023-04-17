@@ -1,7 +1,6 @@
 package flappybird;
 
 import edu.macalester.graphics.GraphicsGroup;
-import edu.macalester.graphics.Ellipse;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Point;
 
@@ -17,7 +16,6 @@ public class Bird {
     private final double FLAP_VELO = 6.9;
     
     private GraphicsGroup graphics;
-    private Ellipse hitBox;
     private Image birdPic;
     private double velocity;
     private boolean alive;
@@ -26,10 +24,6 @@ public class Bird {
         alive = true;
         graphics = new GraphicsGroup();
         graphics.setCenter(BIRD_X, 350);
-
-        hitBox = new Ellipse(0, 0, BIRD_WIDTH, BIRD_WIDTH);
-        hitBox.setStroked(false); // Comment out this line to see hitBox
-        graphics.add(hitBox);
 
         birdPic = new Image("flappyBird.png");
         birdPic.setScale(0.1);
