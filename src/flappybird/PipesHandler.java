@@ -70,7 +70,7 @@ public class PipesHandler {
      * directly between two new pipes.
      */
     private int randomRange() {
-        return random.nextInt(100, 650);
+        return random.nextInt(175, 575);
     }
 
     //TODO: make toString() better
