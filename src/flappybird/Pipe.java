@@ -1,18 +1,13 @@
 package flappybird;
 
 import edu.macalester.graphics.GraphicsGroup;
-import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.Point;
 import edu.macalester.graphics.Image;
-
-import java.awt.Color;
 
 /**
  * Defines a pipe for a game of Flappy Bird
  */
 public class Pipe {
-
-    protected static final Color COLOR = new Color(33, 173, 22);
     
     private GraphicsGroup pipeGraphic;
     private double x; 
@@ -21,36 +16,13 @@ public class Pipe {
         pipeGraphic = new GraphicsGroup();
         this.x = x;
  
-
-        //  // Draw the long part
-         Image longImg;
-         if (pointingUP) {
-            longImg = new Image("FixedUpPipe.png");
-            longImg.setPosition(x + 12, FlappyBird.CANVAS_HEIGHT + edge);
-             
-         } else {
-             longImg = new Image("FixedDownPipe.png");
-             longImg.setPosition(x + 12, edge);
-        }
-         
+        Image longImg;
+        if (pointingUP) longImg = new Image("FixedDownPipe.png");
+        else longImg = new Image("FixedUpPipe.png");
         longImg.setScale(3.5);
+        longImg.setPosition(x+12, edge);
+        if (pointingUP) longImg.moveBy(0, -longImg.getImageHeight() * 3.5);
         pipeGraphic.add(longImg);
-
-
-
-        // Draw the long part
-        // Rectangle longRect = new Rectangle(x + 12, edge, 45, 1000);
-        // longRect.setFillColor(COLOR);
-        // if (pointingUP) longRect.moveBy(0, -1000);
-        // pipeGraphic.add(longRect); 
-
-        // // Draw the opening
-        // if (pointingUP) edge -= 5;
-        // Rectangle opening = new Rectangle(x, edge, 70, 35);
-        // opening.setFillColor(COLOR);
-        // pipeGraphic.add(opening);
-          
-      
     }
 
     /*

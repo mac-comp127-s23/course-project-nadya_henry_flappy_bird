@@ -11,7 +11,7 @@ import edu.macalester.graphics.GraphicsGroup;
  */
 public class PipesHandler {
     
-    private final int PIPE_GAP = 120;
+    private final int PIPE_GAP = 100;
     private final int PIPE_INIT_X = 650;
     private final int PIPE_VELOCITY = 5;
 
@@ -53,23 +53,12 @@ public class PipesHandler {
      * Create two new pipes at the given x coordinate and add them to pipes.
      */
     private void generatePipes(int rangeCenter, double x) {
-
-        int downY= random.nextInt(-100, 105);
-        
-        Pipe upPipe = new Pipe(downY - PIPE_GAP, true, x);
+        Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, x);
         pipes.add(upPipe);
         pipeGraphics.add(upPipe.getGraphic());
-        Pipe downPipe = new Pipe(downY + PIPE_GAP, false, x);
+        Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false, x);
         pipes.add(downPipe);
         pipeGraphics.add(downPipe.getGraphic());
-
-    
-        // Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, x);
-        // pipes.add(upPipe);
-        // pipeGraphics.add(upPipe.getGraphic());
-        // Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false, x);
-        // pipes.add(downPipe);
-        // pipeGraphics.add(downPipe.getGraphic());
     }
 
     
@@ -82,8 +71,8 @@ public class PipesHandler {
      * Return a random integer which will be the y value
      * directly between two new pipes.
      */
-    private int randomRange() {
-        return random.nextInt(222, 537);
+    private int randomRange() { // TODO un-tweak lol
+        return random.nextInt(250, 500);
     }
 
     //TODO: make toString() better
