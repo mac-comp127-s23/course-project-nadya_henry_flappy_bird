@@ -3,6 +3,7 @@ package flappybird;
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Ellipse;
 import edu.macalester.graphics.Image;
+import edu.macalester.graphics.Point;
 
 /**
  * Defines a bird for a game of Flappy Bird
@@ -73,8 +74,12 @@ public class Bird {
         return alive;
     }
 
-    public double getBirdHeight() {
-        return graphics.getCenter().getY();
+    public Point getTop() {
+        return new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() - 0.25*BIRD_WIDTH);
+    }
+
+    public Point getBottom() {
+        return new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() + 0.25*BIRD_WIDTH);
     }
 
     /*

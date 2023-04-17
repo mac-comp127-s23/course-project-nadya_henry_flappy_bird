@@ -36,12 +36,9 @@ public class Pipe {
      * Run every frame, return true if the given bird is touching the pipe.
      */
     public boolean testHit(Bird bird) {
-
-        // TODO modify this function so that it looks at the points on the edge of the hitbox of the bird,
-        // rather than just the center of the bird. :)
-
-        return (pipeGraphic.getElementAt(Bird.BIRD_X + (Bird.BIRD_WIDTH/2), bird.getBirdHeight()) != null);
-
+        boolean top = pipeGraphic.testHit(bird.getTop().getX(), bird.getTop().getY());
+        boolean bottom = pipeGraphic.testHit(bird.getBottom().getX(), bird.getBottom().getY());
+        return top||bottom;
     }
 
     protected double moveX(double moveAmount) { 
