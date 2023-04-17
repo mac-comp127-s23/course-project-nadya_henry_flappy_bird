@@ -35,7 +35,7 @@ public class Bird {
      * Runs every frame.
      */
     protected void move() {
-
+        System.out.println(this);
         birdPic.setRotation(velocityToAngle(velocity));
 
         graphics.moveBy(0, -velocity);
@@ -79,6 +79,7 @@ public class Bird {
             new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() - 0.25*BIRD_WIDTH), // Top
             new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() + 0.25*BIRD_WIDTH), // Bottom
             new Point(BIRD_X + BIRD_WIDTH, graphics.getCenter().getY()) // Front
+            //TODO maybe add a few more points?
         );
     }
 
@@ -90,9 +91,8 @@ public class Bird {
         return (-velocity) / (0.5) - 10;
     }
 
-    //TODO: make toString() better
     @Override
     public String toString() {
-        return graphics.toString();
+        return "Bird at (" + Math.round(BIRD_X + (BIRD_WIDTH/2)) + ", " + Math.round(graphics.getCenter().getY()) + ") with velocity " + Math.round(velocity);
     }
 }
