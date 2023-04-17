@@ -5,6 +5,8 @@ import edu.macalester.graphics.Ellipse;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Point;
 
+import java.util.List;
+
 /**
  * Defines a bird for a game of Flappy Bird
  */
@@ -74,12 +76,11 @@ public class Bird {
         return alive;
     }
 
-    public Point getTop() {
-        return new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() - 0.25*BIRD_WIDTH);
-    }
-
-    public Point getBottom() {
-        return new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() + 0.25*BIRD_WIDTH);
+    public List<Point> getCollisionPoints() {
+        return List.of(
+            new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() - 0.25*BIRD_WIDTH),
+            new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() + 0.25*BIRD_WIDTH)
+        );
     }
 
     /*

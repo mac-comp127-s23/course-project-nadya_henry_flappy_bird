@@ -2,6 +2,7 @@ package flappybird;
 
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Rectangle;
+import edu.macalester.graphics.Point;
 
 import java.awt.Color;
 
@@ -36,9 +37,10 @@ public class Pipe {
      * Run every frame, return true if the given bird is touching the pipe.
      */
     public boolean testHit(Bird bird) {
-        boolean top = pipeGraphic.testHit(bird.getTop().getX(), bird.getTop().getY());
-        boolean bottom = pipeGraphic.testHit(bird.getBottom().getX(), bird.getBottom().getY());
-        return top||bottom;
+        for (Point cPoint : bird.getCollisionPoints()) {
+            if (pipeGraphic.testHit(cPoint.getX(), cPoint.getY())) return true;
+        }
+        return false;
     }
 
     protected double moveX(double moveAmount) { 
