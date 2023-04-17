@@ -35,7 +35,6 @@ public class Bird {
      * Runs every frame.
      */
     protected void move() {
-        System.out.println(this);
         birdPic.setRotation(velocityToAngle(velocity));
 
         graphics.moveBy(0, -velocity);

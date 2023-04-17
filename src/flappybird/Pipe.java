@@ -25,11 +25,11 @@ public class Pipe {
         //  // Draw the long part
          Image longImg;
          if (pointingUP) {
-            longImg = new Image("Pipes1.png");
+            longImg = new Image("FixedUpPipe.png");
             longImg.setPosition(x + 12, FlappyBird.CANVAS_HEIGHT + edge);
              
          } else {
-             longImg = new Image("Pipes2.png");
+             longImg = new Image("FixedDownPipe.png");
              longImg.setPosition(x + 12, edge);
         }
          
