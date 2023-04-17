@@ -3,6 +3,7 @@ package flappybird;
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.Point;
+import edu.macalester.graphics.Image;
 
 import java.awt.Color;
 
@@ -19,18 +20,37 @@ public class Pipe {
     public Pipe(double edge, boolean pointingUP, double x) {
         pipeGraphic = new GraphicsGroup();
         this.x = x;
+ 
+
+        //  // Draw the long part
+         Image longImg;
+         if (pointingUP) {
+            longImg = new Image("Pipes1.png");
+            longImg.setPosition(x + 12, FlappyBird.CANVAS_HEIGHT + edge);
+             
+         } else {
+             longImg = new Image("Pipes2.png");
+             longImg.setPosition(x + 12, edge);
+        }
+         
+         longImg.setScale(3.5);
+         pipeGraphic.add(longImg);
+
+
 
         // Draw the long part
-        Rectangle longRect = new Rectangle(x + 12, edge, 45, 1000);
-        longRect.setFillColor(COLOR);
-        if (pointingUP) longRect.moveBy(0, -1000);
-        pipeGraphic.add(longRect); 
+        // Rectangle longRect = new Rectangle(x + 12, edge, 45, 1000);
+        // longRect.setFillColor(COLOR);
+        // if (pointingUP) longRect.moveBy(0, -1000);
+        // pipeGraphic.add(longRect); 
 
-        // Draw the opening
-        if (pointingUP) edge -= 5;
-        Rectangle opening = new Rectangle(x, edge, 70, 35);
-        opening.setFillColor(COLOR);
-        pipeGraphic.add(opening);
+        // // Draw the opening
+        // if (pointingUP) edge -= 5;
+        // Rectangle opening = new Rectangle(x, edge, 70, 35);
+        // opening.setFillColor(COLOR);
+        // pipeGraphic.add(opening);
+          
+      
     }
 
     /*
@@ -59,6 +79,9 @@ public class Pipe {
     //TODO: make toString() better
     @Override
     public String toString() {
-        return pipeGraphic.toString();
+        String direction = pipeGraphic.getHeight() > pipeGraphic.getWidth() ? "up" : "down";
+        String openingPos = direction.equals("up") ? "bottom" : "top";
+        return "Pipe at x=" + x + ", opening at " + openingPos + ", pointing " + direction;
+    
     }
 }

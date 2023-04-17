@@ -11,7 +11,7 @@ import edu.macalester.graphics.GraphicsGroup;
  */
 public class PipesHandler {
     
-    private final int PIPE_GAP = 80;
+    private final int PIPE_GAP = 120;
     private final int PIPE_INIT_X = 650;
     private final int PIPE_VELOCITY = 5;
 
@@ -53,13 +53,26 @@ public class PipesHandler {
      * Create two new pipes at the given x coordinate and add them to pipes.
      */
     private void generatePipes(int rangeCenter, double x) {
-        Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, x);
+
+        int downY= random.nextInt(-100, 105);
+        
+        Pipe upPipe = new Pipe(downY - PIPE_GAP, true, x);
         pipes.add(upPipe);
         pipeGraphics.add(upPipe.getGraphic());
-        Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false, x);
+        Pipe downPipe = new Pipe(downY + PIPE_GAP, false, x);
         pipes.add(downPipe);
         pipeGraphics.add(downPipe.getGraphic());
+
+    
+        // Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, x);
+        // pipes.add(upPipe);
+        // pipeGraphics.add(upPipe.getGraphic());
+        // Pipe downPipe = new Pipe(rangeCenter + PIPE_GAP, false, x);
+        // pipes.add(downPipe);
+        // pipeGraphics.add(downPipe.getGraphic());
     }
+
+    
 
     public GraphicsGroup getGraphic() {
         return pipeGraphics;
@@ -77,5 +90,7 @@ public class PipesHandler {
     @Override
     public String toString() {
         return pipes.toString();
+
+        
     }
 }

@@ -5,9 +5,11 @@ import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.events.Key;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
+import java.awt.Color;
 
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
+
 
 /**
  * Manages a game of Flappy Bird
@@ -16,7 +18,7 @@ public class FlappyBird {
 
     protected static final int CANVAS_WIDTH = 640;
     protected static final int GROUND_Y = 750; 
-    private final int CANVAS_HEIGHT = 980;
+    protected static final int CANVAS_HEIGHT = 980;
     
 
     private CanvasWindow canvas;
@@ -77,12 +79,14 @@ public class FlappyBird {
         canvas.add(pipesHandler.getGraphic());
         // Add points text
         pointsText = new GraphicsText("" + points, 22, 45);
-        pointsText.setFontSize(40);
+        pointsText.setFillColor(Color.WHITE);
+        pointsText.setStrokeColor(Color.BLACK);
+        pointsText.setStrokeWidth(2);
+        pointsText.setFontSize(50);
         canvas.add(pointsText);
         // Add ground rectangle
         groundRect = new Rectangle(0, GROUND_Y + 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y);
         groundRect.setStroked(false); 
-        groundRect.setFillColor(Pipe.COLOR);
         canvas.add(groundRect);
         // Add bird
         bird = new Bird();
