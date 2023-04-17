@@ -33,8 +33,8 @@ public class Pipe {
              longImg.setPosition(x + 12, edge);
         }
          
-         longImg.setScale(3.5);
-         pipeGraphic.add(longImg);
+        longImg.setScale(3.5);
+        pipeGraphic.add(longImg);
 
 
 
