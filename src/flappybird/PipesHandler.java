@@ -10,8 +10,8 @@ import edu.macalester.graphics.GraphicsGroup;
  * Manages the pipes for a game of Flappy Bird
  */
 public class PipesHandler {
-
-    private final int PIPE_GAP = 60;
+    
+    private final int PIPE_GAP = 50;
     private final int PIPE_INIT_X = 675;
     private final int PIPE_VELOCITY = 5;
 
