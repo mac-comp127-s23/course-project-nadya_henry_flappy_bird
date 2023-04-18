@@ -33,6 +33,7 @@ public class PipesHandler {
      * Return true if a point should be awarded.
      */
     protected boolean movePipes(Bird bird) {
+        System.out.println(this);
         for (Pipe pipe : pipes) {
             pipe.getGraphic().moveBy(-PIPE_VELOCITY, 0); // Move the graphics of the pipes
             pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)
@@ -73,11 +74,8 @@ public class PipesHandler {
         return random.nextInt(250, 550);
     }
 
-    //TODO: make toString() better
     @Override
     public String toString() {
-        return pipes.toString();
-
-        
+        return "A Pipes Handler for a game of Flappy Bird containing the following Pipes: " + pipes.toString();
     }
 }

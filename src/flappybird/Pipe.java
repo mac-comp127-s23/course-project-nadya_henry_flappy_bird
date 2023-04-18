@@ -48,7 +48,6 @@ public class Pipe {
         return x;
     }
 
-    //TODO: make toString() better
     @Override
     public String toString() {
         String direction = pipeGraphic.getHeight() > pipeGraphic.getWidth() ? "up" : "down";
