@@ -4,8 +4,8 @@ import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.events.Key;
 import edu.macalester.graphics.Image;
-import edu.macalester.graphics.Rectangle;
 import java.awt.Color;
+// import edu.macalester.graphics.Point;
 
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -24,7 +24,7 @@ public class FlappyBird {
     private CanvasWindow canvas;
     private int points;
     private GraphicsText pointsText;
-    private Rectangle groundRect;
+    private Image groundImg;
     private Image backgroundImg;
     private ImageIcon popupIcon;
     private boolean running;
@@ -54,6 +54,7 @@ public class FlappyBird {
             }
         };
         canvas.animate(mainGameplayLoop);
+
     }
 
     private void control(boolean flapped){
@@ -83,10 +84,12 @@ public class FlappyBird {
         pointsText.setStrokeWidth(2);
         pointsText.setFontSize(50);
         canvas.add(pointsText);
-        // Add ground rectangle
-        groundRect = new Rectangle(0, GROUND_Y + 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y);
-        groundRect.setStroked(false); 
-        canvas.add(groundRect);
+        // Add ground 
+        groundImg = new Image("testGround.png");
+        groundImg.setPosition(0,GROUND_Y + 40);
+        canvas.add(groundImg);
+
+       
         // Add bird
         bird = new Bird();
         canvas.add(bird.getGraphic());

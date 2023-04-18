@@ -77,7 +77,9 @@ public class Bird {
         return List.of(
             new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() - 0.25*BIRD_WIDTH), // Top
             new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() + 0.25*BIRD_WIDTH), // Bottom
-            new Point(BIRD_X + BIRD_WIDTH, graphics.getCenter().getY()) // Front
+            new Point(BIRD_X + BIRD_WIDTH, graphics.getCenter().getY()), // Front
+            new Point(BIRD_X, graphics.getCenter().getY()) // Back
+
             //TODO maybe add a few more points?
         );
     }
