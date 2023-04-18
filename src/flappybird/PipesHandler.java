@@ -69,8 +69,8 @@ public class PipesHandler {
      * Return a random integer which will be the y value
      * directly between two new pipes.
      */
-    private int randomRange() { // TODO un-tweak lol
-        return random.nextInt(250, 500);
+    private int randomRange() {
+        return random.nextInt(250, 550);
     }
 
     //TODO: make toString() better
