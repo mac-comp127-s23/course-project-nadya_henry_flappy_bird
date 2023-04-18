@@ -71,7 +71,7 @@ public class FlappyBird {
         // Draw things in the order they should be drawn
 
         // Add background image
-        backgroundImg = new Image("flappyBirdBckg2.jpeg");
+        backgroundImg = new Image("background.jpeg");
         canvas.add(backgroundImg);
         // Add pipes handler
         pipesHandler = new PipesHandler();
