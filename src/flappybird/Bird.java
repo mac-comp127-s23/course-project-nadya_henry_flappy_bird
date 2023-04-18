@@ -92,6 +92,8 @@ public class Bird {
 
     @Override
     public String toString() {
-        return "Bird at (" + Math.round(BIRD_X + (BIRD_WIDTH/2)) + ", " + Math.round(graphics.getCenter().getY()) + ") with velocity " + Math.round(velocity);
+        return "Bird at (" + Math.round(BIRD_X + (BIRD_WIDTH/2)) +
+            ", " + Math.round(graphics.getCenter().getY()) +
+            ") with velocity " + Math.round(velocity);
     }
 }

@@ -10,7 +10,7 @@ import edu.macalester.graphics.GraphicsGroup;
  * Manages the pipes for a game of Flappy Bird
  */
 public class PipesHandler {
-    
+
     private final int PIPE_GAP = 60;
     private final int PIPE_INIT_X = 675;
     private final int PIPE_VELOCITY = 5;
@@ -23,7 +23,6 @@ public class PipesHandler {
         random = new Random();
         pipes = new LinkedList<Pipe>();
         pipeGraphics = new GraphicsGroup();
-
         generatePipes(randomRange(), PIPE_INIT_X);
         generatePipes(randomRange(), PIPE_INIT_X + ((FlappyBird.CANVAS_WIDTH + 80) / 2));
     }
@@ -33,7 +32,6 @@ public class PipesHandler {
      * Return true if a point should be awarded.
      */
     protected boolean movePipes(Bird bird) {
-        System.out.println(this);
         for (Pipe pipe : pipes) {
             pipe.getGraphic().moveBy(-PIPE_VELOCITY, 0); // Move the graphics of the pipes
             pipe.moveX(-PIPE_VELOCITY); // Tell the pipes that they've been moved (update their x coordinates)

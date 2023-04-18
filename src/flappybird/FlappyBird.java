@@ -68,7 +68,6 @@ public class FlappyBird {
         running = false;
         canvas.removeAll();
 
-
         // Draw things in the order they should be drawn
 
         // Add background image
