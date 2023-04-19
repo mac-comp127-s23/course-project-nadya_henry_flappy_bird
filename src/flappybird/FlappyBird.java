@@ -25,7 +25,6 @@ public class FlappyBird {
     private Image backgroundImg;
     private ImageIcon popupIcon;
     private boolean running;
- 
 
     private Bird bird;
     private PipesHandler pipesHandler;
@@ -86,7 +85,7 @@ public class FlappyBird {
         pointsText.setFontSize(50);
         canvas.add(pointsText);
         // Add ground 
-        groundImg = new Image("testGround.png");
+        groundImg = new Image("testGround.png"); //TODO clean up res folder (delete unused and rename used images)
         groundImg.setPosition(0,GROUND_Y + 40);
         canvas.add(groundImg);
 

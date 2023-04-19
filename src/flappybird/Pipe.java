@@ -8,7 +8,7 @@ import edu.macalester.graphics.Image;
  * Defines a pipe for a game of Flappy Bird
  */
 public class Pipe {
-    
+
     private GraphicsGroup pipeGraphic;
     private double x; 
 
@@ -35,9 +35,12 @@ public class Pipe {
         return false;
     }
 
-    protected double moveX(double moveAmount) { 
+    /*
+     * Modify the x cordinate of the pipe, so that the
+     * pipe itself knows where it is on the canvas.
+     */
+    protected void moveX(double moveAmount) {//TODO change from double to void on uml
         x += moveAmount;
-        return x;
     }
 
     public GraphicsGroup getGraphic() { 

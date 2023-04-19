@@ -1,10 +1,10 @@
 package flappybird;
 
+import edu.macalester.graphics.GraphicsGroup;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
-
-import edu.macalester.graphics.GraphicsGroup;
 
 /**
  * Manages the pipes for a game of Flappy Bird
