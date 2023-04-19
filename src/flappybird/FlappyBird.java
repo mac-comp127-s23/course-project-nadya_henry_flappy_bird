@@ -7,6 +7,7 @@ import edu.macalester.graphics.Image;
 import java.awt.Color;
 // import edu.macalester.graphics.Point;
 
+
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
@@ -26,6 +27,7 @@ public class FlappyBird {
     private Image backgroundImg;
     private ImageIcon popupIcon;
     private boolean running;
+ 
 
     private Bird bird;
     private PipesHandler pipesHandler;
@@ -42,6 +44,8 @@ public class FlappyBird {
         canvas.onKeyDown(event -> {
             control(event.getKey().equals(Key.SPACE));
         });
+    
+
 
         Runnable mainGameplayLoop = () -> {
             if (running) {
@@ -52,7 +56,10 @@ public class FlappyBird {
             }
         };
         canvas.animate(mainGameplayLoop);
+
     }
+
+    
 
     private void control(boolean flapped){
         if (flapped) {
@@ -86,13 +93,12 @@ public class FlappyBird {
         groundImg.setPosition(0,GROUND_Y + 40);
         canvas.add(groundImg);
 
-       
         // Add bird
         bird = new Bird();
         canvas.add(bird.getGraphic());
     }
 
-    private void gameOver() { // TODO add falling bird animation after hitting a pipe :)
+    private void gameOver() { 
         updatePointsText();
         boolean playAgain = (JOptionPane.showConfirmDialog(
             null,

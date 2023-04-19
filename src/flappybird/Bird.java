@@ -41,7 +41,7 @@ public class Bird {
         velocity -= 0.5;
 
         // check if the bird hits the ground here.
-        if (graphics.getY() >= FlappyBird.GROUND_Y) {
+        if (graphics.getY() >= FlappyBird.GROUND_Y - 30) {
             velocity = 0;
             alive = false;
         }
@@ -55,10 +55,20 @@ public class Bird {
     }
 
     /*
-     * Sets alive to false :(
+     * Sets alive to false and makes the bird fall to the ground :(
      */
-    protected void kill() {
+    protected void kill() { // TODO: Make the bird fall slower.
         alive = false;
+        double birdY = graphics.getY();
+        double groundY = FlappyBird.GROUND_Y - 20;
+        velocity = 0; // initial velocity
+        if (birdY < groundY) {
+            // Move the bird down until it hits the ground
+            while (graphics.getY() < groundY) {
+                velocity -= 0.5;
+                graphics.moveBy(0, -velocity);
+            }
+        }
     }
 
     public GraphicsGroup getGraphic() {
@@ -78,10 +88,22 @@ public class Bird {
             new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() - 0.25*BIRD_WIDTH), // Top
             new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() + 0.25*BIRD_WIDTH), // Bottom
             new Point(BIRD_X + BIRD_WIDTH, graphics.getCenter().getY()), // Front
-            new Point(BIRD_X, graphics.getCenter().getY()) // Back
-
+            new Point(BIRD_X, graphics.getCenter().getY()), // Back
+            new Point(BIRD_X + (BIRD_WIDTH/4), graphics.getCenter().getY() - 0.125*BIRD_WIDTH), // Upper middle
+            new Point(BIRD_X + (BIRD_WIDTH/4), graphics.getCenter().getY() + 0.125*BIRD_WIDTH), // Lower middle
+            new Point(BIRD_X + (3*BIRD_WIDTH/4), graphics.getCenter().getY() - 0.125*BIRD_WIDTH), // Upper middle
+            new Point(BIRD_X + (3*BIRD_WIDTH/4), graphics.getCenter().getY() + 0.125*BIRD_WIDTH) // Lower middle
+        
             //TODO maybe add a few more points?
         );
+    }
+
+    public double getX() {
+        return graphics.getX();
+    }
+
+    public double getY() {
+        return graphics.getY();
     }
 
     /*
