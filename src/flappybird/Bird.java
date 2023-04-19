@@ -55,7 +55,7 @@ public class Bird {
     }
 
     /*
-     * Sets alive to false and makes the bird fall to the ground :(
+     * Sets alive to false :(
      */
     protected void kill() {
         alive = false;
