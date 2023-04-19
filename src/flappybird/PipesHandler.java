@@ -15,18 +15,17 @@ public class PipesHandler {
     private final int PIPE_GAP = 50;
     private final int PIPE_INIT_X = 675;
     private final int PIPE_VELOCITY = 5;
+    private final Point PIPE_LIMIT = new Point(250, 550); // TODO add to uml
 
     private Random random;
     private Queue<Pipe> pipes;
     private GraphicsGroup pipeGraphics;
-    private Point pipeLimit;
-    private int lastPairCenter;
+    private int lastPairCenter; // TODO add to uml
 
     public PipesHandler() {
         random = new Random();
         pipes = new LinkedList<Pipe>();
         pipeGraphics = new GraphicsGroup();
-        pipeLimit = new Point(200, 550);
         lastPairCenter = FlappyBird.GROUND_Y/2;
         generatePipes(randomRange(lastPairCenter), PIPE_INIT_X);
         generatePipes(randomRange(lastPairCenter), PIPE_INIT_X + ((FlappyBird.CANVAS_WIDTH + 80) / 2));
@@ -75,8 +74,8 @@ public class PipesHandler {
      */
     private int randomRange(int prevCenter) {
         int returnVal = random.nextInt(
-            Math.max(lastPairCenter - 150, (int)pipeLimit.getX()), 
-            Math.min(lastPairCenter + 150, (int)pipeLimit.getY()));
+            Math.max(lastPairCenter - 150, (int)PIPE_LIMIT.getX()),
+            Math.min(lastPairCenter + 150, (int)PIPE_LIMIT.getY()));
         lastPairCenter = returnVal;
         return returnVal;
     }
