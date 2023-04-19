@@ -10,7 +10,6 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
-
 /**
  * Manages a game of Flappy Bird
  */
@@ -19,7 +18,6 @@ public class FlappyBird {
     protected static final int CANVAS_WIDTH = 640;
     protected static final int GROUND_Y = 750;
     protected static final int CANVAS_HEIGHT = 980;
-    
 
     private CanvasWindow canvas;
     private int points;
@@ -54,7 +52,6 @@ public class FlappyBird {
             }
         };
         canvas.animate(mainGameplayLoop);
-
     }
 
     private void control(boolean flapped){
@@ -113,10 +110,9 @@ public class FlappyBird {
         canvas.draw();
     }
 
-    //TODO: make toString() better
     @Override
     public String toString() {
-        return canvas.toString();
+        return "A Game of Flappy Bird with score " + points;
     }
 
     public static void main(String[] args) {
