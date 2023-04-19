@@ -97,12 +97,8 @@ public class Bird {
             new Point(BIRD_X + (BIRD_WIDTH/2), graphics.getCenter().getY() + 0.25*BIRD_WIDTH), // Bottom
             new Point(BIRD_X + BIRD_WIDTH, graphics.getCenter().getY()), // Front
             new Point(BIRD_X, graphics.getCenter().getY()), // Back
-            // new Point(BIRD_X + (BIRD_WIDTH/4), graphics.getCenter().getY() - 0.125*BIRD_WIDTH), // Upper middle
-            // new Point(BIRD_X + (BIRD_WIDTH/4), graphics.getCenter().getY() + 0.125*BIRD_WIDTH), // Lower middle
-            // new Point(BIRD_X + (3*BIRD_WIDTH/4), graphics.getCenter().getY() - 0.125*BIRD_WIDTH), // Upper middle
-            // new Point(BIRD_X + (3*BIRD_WIDTH/4), graphics.getCenter().getY() + 0.125*BIRD_WIDTH), // Lower middle
-            new Point(BIRD_X + (BIRD_WIDTH/2) + ((BIRD_WIDTH/2))*Math.cos(birdPic.getRotation()), // Bird's beak tip.
-                graphics.getCenter().getY() + ((BIRD_WIDTH/2))*Math.sin(birdPic.getRotation()))
+            new Point(BIRD_X + (BIRD_WIDTH/2) + ((BIRD_WIDTH/2))*Math.cos(Math.toRadians(birdPic.getRotation())), // Bird's beak tip.
+                graphics.getCenter().getY() + ((BIRD_WIDTH/2))*Math.sin(Math.toRadians(birdPic.getRotation())))
         );
     }
 
