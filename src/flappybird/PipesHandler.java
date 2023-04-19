@@ -51,7 +51,7 @@ public class PipesHandler {
     /*
      * Create two new pipes at the given x coordinate and add them to pipes.
      */
-    private void generatePipes(int rangeCenter, double x) {
+    private void generatePipes(int rangeCenter, double x) { // TODO make every new generation "fair" with some sort of distance limit
         Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, x);
         pipes.add(upPipe);
         pipeGraphics.add(upPipe.getGraphic());

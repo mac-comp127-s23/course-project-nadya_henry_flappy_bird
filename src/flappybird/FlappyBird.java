@@ -43,13 +43,13 @@ public class FlappyBird {
             control(event.getKey().equals(Key.SPACE));
         });
 
-        Runnable mainGameplayLoop = () -> {
+        Runnable mainGameplayLoop = () -> { //TODO add an idle animation before the user clicks or presses?
             if (running) {
                 bird.move();
                 if (pipesHandler.movePipes(bird)) points += 1;
                 updatePointsText();
                 if (!bird.isAlive()) gameOver();
-            }
+            } // TODO animate the ground
         };
         canvas.animate(mainGameplayLoop);
 

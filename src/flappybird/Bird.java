@@ -50,7 +50,7 @@ public class Bird {
     /*
      * Run when user clicks or presses spacebar.
      */
-    protected void flap() {
+    public void flap() { //TODO change to public on uml
         velocity = FLAP_VELO;
     }
 
@@ -65,7 +65,7 @@ public class Bird {
      * Moves the bird down after the bird has died.
      * Return true if the bird is still falling, return false when the bird hits the ground.
      */
-    protected boolean animateDeath() {
+    protected boolean animateDeath() { // TODO add to uml
         birdPic.setRotation(75);
         double birdY = graphics.getY();
         double groundY = FlappyBird.GROUND_Y - 15;
@@ -102,7 +102,7 @@ public class Bird {
             new Point(BIRD_X + (3*BIRD_WIDTH/4), graphics.getCenter().getY() - 0.125*BIRD_WIDTH), // Upper middle
             new Point(BIRD_X + (3*BIRD_WIDTH/4), graphics.getCenter().getY() + 0.125*BIRD_WIDTH) // Lower middle
         
-            //TODO maybe add a few more points?
+            //TODO maybe add a point that uses velocityToAngle() to follow the bird's beak?
         );
     }
 
