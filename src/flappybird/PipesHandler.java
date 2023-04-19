@@ -15,12 +15,12 @@ public class PipesHandler {
     private final int PIPE_GAP = 50;
     private final int PIPE_INIT_X = 675;
     private final int PIPE_VELOCITY = 5;
-    private final Point PIPE_LIMIT = new Point(250, 550); // TODO add to uml
+    private final Point PIPE_LIMIT = new Point(250, 550);
 
     private Random random;
     private Queue<Pipe> pipes;
     private GraphicsGroup pipeGraphics;
-    private int lastPairCenter; // TODO add to uml
+    private int lastPairCenter; 
 
     public PipesHandler() {
         random = new Random();
@@ -55,7 +55,7 @@ public class PipesHandler {
     /*
      * Create two new pipes at the given x coordinate and add them to pipes.
      */
-    private void generatePipes(int rangeCenter, double x) { // TODO make every new generation "fair" with some sort of distance limit
+    private void generatePipes(int rangeCenter, double x) {
         Pipe upPipe = new Pipe(rangeCenter - PIPE_GAP, true, x);
         pipes.add(upPipe);
         pipeGraphics.add(upPipe.getGraphic());

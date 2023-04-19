@@ -39,7 +39,7 @@ public class Pipe {
      * Modify the x cordinate of the pipe, so that the
      * pipe itself knows where it is on the canvas.
      */
-    protected void moveX(double moveAmount) {//TODO change from double to void on uml
+    protected void moveX(double moveAmount) {
         x += moveAmount;
     }
 
