@@ -2,7 +2,6 @@ package flappybird;
 
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Image;
-import edu.macalester.graphics.Path;
 import edu.macalester.graphics.Point;
 
 import java.util.List;
@@ -51,7 +50,7 @@ public class Bird {
     /*
      * Run when user clicks or presses spacebar.
      */
-    public void flap() { //TODO change to public on uml
+    public void flap() {
         velocity = FLAP_VELO;
     }
 
@@ -66,7 +65,7 @@ public class Bird {
      * Moves the bird down after the bird has died.
      * Return true if the bird is still falling, return false when the bird hits the ground.
      */
-    protected boolean animateDeath() { // TODO add to uml
+    protected boolean animateDeath() {
         birdPic.setRotation(75);
         double birdY = graphics.getY();
         double groundY = FlappyBird.GROUND_Y - 15;
