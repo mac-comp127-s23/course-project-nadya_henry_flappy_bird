@@ -1,6 +1,7 @@
 package flappybird;
 
 import edu.macalester.graphics.GraphicsGroup;
+import edu.macalester.graphics.Point;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -18,13 +19,17 @@ public class PipesHandler {
     private Random random;
     private Queue<Pipe> pipes;
     private GraphicsGroup pipeGraphics;
+    private Point pipeLimit;
+    private int lastPairCenter;
 
     public PipesHandler() {
         random = new Random();
         pipes = new LinkedList<Pipe>();
         pipeGraphics = new GraphicsGroup();
-        generatePipes(randomRange(), PIPE_INIT_X);
-        generatePipes(randomRange(), PIPE_INIT_X + ((FlappyBird.CANVAS_WIDTH + 80) / 2));
+        pipeLimit = new Point(200, 550);
+        lastPairCenter = FlappyBird.GROUND_Y/2;
+        generatePipes(randomRange(lastPairCenter), PIPE_INIT_X);
+        generatePipes(randomRange(lastPairCenter), PIPE_INIT_X + ((FlappyBird.CANVAS_WIDTH + 80) / 2));
     }
 
     /*
@@ -41,7 +46,7 @@ public class PipesHandler {
         if (pipes.peek().getX() <= -80) {
             pipes.remove();
             pipes.remove();
-            generatePipes(randomRange(), PIPE_INIT_X);
+            generatePipes(randomRange(lastPairCenter), PIPE_INIT_X);
         }
         //Check if a pipe just passed the bird, and return true if it did (to reward a point):
         for (Pipe pipe : pipes) if (pipe.getX() == Bird.BIRD_X) return true;
@@ -68,8 +73,12 @@ public class PipesHandler {
      * Return a random integer which will be the y value
      * directly between two new pipes.
      */
-    private int randomRange() {
-        return random.nextInt(250, 550);
+    private int randomRange(int prevCenter) {
+        int returnVal = random.nextInt(
+            Math.max(lastPairCenter - 150, (int)pipeLimit.getX()), 
+            Math.min(lastPairCenter + 150, (int)pipeLimit.getY()));
+        lastPairCenter = returnVal;
+        return returnVal;
     }
 
     @Override
