@@ -1,3 +1,7 @@
-# Project Title Goes Here
+# Flappy Bird
+## Created by Nadya, Kynan, and Henry
+### Original Game by Dong Nguyen
 
-Info about your project goes here
+
+
+Press <kdb>Space<kbd> or <kbd>Click</kbd> to start!
