@@ -5,8 +5,6 @@ import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.events.Key;
 import edu.macalester.graphics.Image;
 import java.awt.Color;
-// import edu.macalester.graphics.Point;
-
 
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -44,8 +42,6 @@ public class FlappyBird {
         canvas.onKeyDown(event -> {
             control(event.getKey().equals(Key.SPACE));
         });
-    
-
 
         Runnable mainGameplayLoop = () -> {
             if (running) {
@@ -59,8 +55,9 @@ public class FlappyBird {
 
     }
 
-    
-
+    /*
+     * Runs when user presses the space bar or clicks the canvas.
+     */
     private void control(boolean flapped){
         if (flapped) {
             if (!running) running = true;
@@ -98,7 +95,12 @@ public class FlappyBird {
         canvas.add(bird.getGraphic());
     }
 
-    private void gameOver() { 
+    private void gameOver() {
+        while (bird.animateDeath()) { // Have bird fall to ground.
+            canvas.draw();
+        }
+        canvas.draw();
+
         updatePointsText();
         boolean playAgain = (JOptionPane.showConfirmDialog(
             null,

@@ -57,18 +57,26 @@ public class Bird {
     /*
      * Sets alive to false and makes the bird fall to the ground :(
      */
-    protected void kill() { // TODO: Make the bird fall slower.
+    protected void kill() {
         alive = false;
+    }
+
+    /*
+     * Moves the bird down after the bird has died.
+     * Return true if the bird is still falling, return false when the bird hits the ground.
+     */
+    protected boolean animateDeath() {
+        birdPic.setRotation(75);
         double birdY = graphics.getY();
-        double groundY = FlappyBird.GROUND_Y - 20;
-        velocity = 0; // initial velocity
+        double groundY = FlappyBird.GROUND_Y - 15;
+        velocity = -0.4;
+
         if (birdY < groundY) {
-            // Move the bird down until it hits the ground
-            while (graphics.getY() < groundY) {
-                velocity -= 0.5;
-                graphics.moveBy(0, -velocity);
-            }
+            graphics.moveBy(0, -velocity);
+            velocity -= 0.69;
+            return true;
         }
+        else return false;
     }
 
     public GraphicsGroup getGraphic() {
