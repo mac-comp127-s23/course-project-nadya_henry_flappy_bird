@@ -66,17 +66,12 @@ public class Bird {
      * Return true if the bird is still falling, return false when the bird hits the ground.
      */
     protected boolean animateDeath() {
-        birdPic.setRotation(75);
-        double birdY = graphics.getY();
-        double groundY = FlappyBird.GROUND_Y - 15;
         velocity = -0.4;
-
-        if (birdY < groundY) {
-            graphics.moveBy(0, -velocity);
-            velocity -= 0.69;
-            return true;
-        }
-        else return false;
+        graphics.moveBy(0, -velocity);
+        if (graphics.getY() >= FlappyBird.GROUND_Y - 12 - velocity) return false;
+        birdPic.setRotation(75);
+        velocity -= 0.69;
+        return true;
     }
 
     public GraphicsGroup getGraphic() {
