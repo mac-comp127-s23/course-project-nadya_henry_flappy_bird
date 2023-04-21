@@ -44,7 +44,6 @@ public class FlappyBird {
         popupIcon = new ImageIcon("res/deadBird.png", "Flappy Bird Icon");
         running = false;
         reset();
-        drawMenu();
         togglePointsVisibility(false);
 
         canvas.animate(() -> {
@@ -149,6 +148,8 @@ public class FlappyBird {
         // Add bird
         bird = new Bird();
         canvas.add(bird.getGraphic());
+
+        drawMenu();
     }
 
     private void gameOver() {
