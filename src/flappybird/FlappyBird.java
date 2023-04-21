@@ -47,18 +47,15 @@ public class FlappyBird {
         drawMenu();
         togglePointsVisibility(false);
 
-        canvas.animate(() -> birdFloatAnimationLoop());
-        canvas.animate(() -> groundAnimationLoop());
-        canvas.onMouseDown(event -> handleMouseEvent());
-        canvas.animate(() -> mainGameplayLoop());
-
+        canvas.animate(() -> {
+            birdFloatAnimationLoop();
+            groundAnimationLoop();
+            mainGameplayLoop();
+        });
+        canvas.onMouseDown(event -> control(true));
         canvas.onKeyDown(event -> {
             control(event.getKey().equals(Key.SPACE));
-            canvas.remove(titleImg);
-            canvas.remove(startButtonImg);
-            togglePointsVisibility(true);
         });
-
     }
 
     private void birdFloatAnimationLoop() { // TODO: Add to UML
@@ -66,19 +63,11 @@ public class FlappyBird {
             bird.birdFloat();
         }
     }
-    
+
     private void groundAnimationLoop() { // TODO: Add to UML
         moveGround();
     }
-    
-    private void handleMouseEvent() { // TODO: Add to UML
-        control(true);
-        canvas.remove(titleImg);
-        canvas.remove(startButtonImg);
-        togglePointsVisibility(true);
-    }
-    
-    
+
     private void mainGameplayLoop() {   // TODO: Add to UML
         if (running) {
             bird.move(); 
@@ -87,8 +76,6 @@ public class FlappyBird {
             if (!bird.isAlive()) gameOver();
         }
     }
-   
-
 
     private void togglePointsVisibility(boolean visible) { // TODO: Add to UML
         if (visible && !pointsVisible) {
@@ -99,7 +86,6 @@ public class FlappyBird {
             pointsVisible = false;
         }
     }
-
 
     private void drawMenu () { // TODO: Add to UML
 		// Title
@@ -113,7 +99,6 @@ public class FlappyBird {
         canvas.add(startButtonImg);
     }
 
-
     public void moveGround() { // TODO: Add to UML
         double groundX = groundImg.getX(); 
         double decrement = PipesHandler.PIPE_VELOCITY;
@@ -124,15 +109,17 @@ public class FlappyBird {
         groundImg.setX(groundX);
     }
 
-
     /*
      * Runs when user presses the space bar or clicks the canvas.
      */
     private void control(boolean flapped){
-        if (flapped) {
-            if (!running) running = true;
-            bird.flap();
+        if (!running) {
+            canvas.remove(titleImg);
+            canvas.remove(startButtonImg);
+            togglePointsVisibility(true);
+            running = true;
         }
+        if (flapped) bird.flap();
     }
 
     private void reset() { // TODO: Let points appear when the user clicks to replay the game.
@@ -162,8 +149,6 @@ public class FlappyBird {
         // Add bird
         bird = new Bird();
         canvas.add(bird.getGraphic());
-      
-
     }
 
     private void gameOver() {
@@ -179,15 +164,12 @@ public class FlappyBird {
             "Game Over!", JOptionPane.YES_NO_OPTION, 0, popupIcon) == 0);
         if (playAgain) {
             reset();
-
         }
         else {
             running = false;
             canvas.closeWindow();
         }
     }
-
-
 
     private void updatePointsText() {
         pointsText.setText("" + points);
