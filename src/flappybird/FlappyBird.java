@@ -39,17 +39,18 @@ public class FlappyBird {
     private PipesHandler pipesHandler;
 
     public FlappyBird() {
-
         canvas = new CanvasWindow("Flappy Bird", CANVAS_WIDTH, CANVAS_HEIGHT);
         popupIcon = new ImageIcon("res/deadBird.png", "Flappy Bird Icon");
         running = false;
         reset();
-        togglePointsVisibility(false);
+        togglePointsVisibility(false); // TODO fix the fact that points just go away after first playthrough
 
-        canvas.animate(() -> {
-            birdFloatAnimationLoop();
-            groundAnimationLoop();
-            mainGameplayLoop();
+        canvas.animate(() -> { // TODO idk why but the hitboxes on the pipes are not correct :/ we should fix that
+            if (running) mainGameplayLoop();
+            else {
+                birdFloatAnimationLoop();
+                groundAnimationLoop();
+            }
         });
         canvas.onMouseDown(event -> control(true));
         canvas.onKeyDown(event -> {
@@ -68,12 +69,10 @@ public class FlappyBird {
     }
 
     private void mainGameplayLoop() {   // TODO: Add to UML
-        if (running) {
-            bird.move(); 
-            if (pipesHandler.movePipes(bird)) points += 1;
-            updatePointsText();
-            if (!bird.isAlive()) gameOver();
-        }
+        bird.move(); 
+        if (pipesHandler.movePipes(bird)) points += 1;
+        updatePointsText();
+        if (!bird.isAlive()) gameOver();
     }
 
     private void togglePointsVisibility(boolean visible) { // TODO: Add to UML
@@ -99,12 +98,9 @@ public class FlappyBird {
     }
 
     public void moveGround() { // TODO: Add to UML
-        double groundX = groundImg.getX(); 
-        double decrement = PipesHandler.PIPE_VELOCITY;
-        groundX -= decrement;
-        if (groundX < -groundImg.getWidth()/2) {
-            groundX = 0;
-            }
+        double groundX = groundImg.getX();
+        groundX -= PipesHandler.PIPE_VELOCITY;
+        if (groundX < -groundImg.getWidth()/2) groundX = 0;
         groundImg.setX(groundX);
     }
 
