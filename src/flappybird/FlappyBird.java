@@ -46,10 +46,10 @@ public class FlappyBird {
         togglePointsVisibility(false); // TODO fix the fact that points just go away after first playthrough
 
         canvas.animate(() -> { // TODO idk why but the hitboxes on the pipes are not correct :/ we should fix that
+            groundAnimationLoop();
             if (running) mainGameplayLoop();
             else {
                 birdFloatAnimationLoop();
-                groundAnimationLoop();
             }
         });
         canvas.onMouseDown(event -> control(true));
