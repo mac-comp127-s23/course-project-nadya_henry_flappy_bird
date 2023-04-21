@@ -5,13 +5,10 @@ import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.events.Key;
 import edu.macalester.graphics.Image;
 
-
 import java.awt.Color;
-
 
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
-
 
 /**
  * Manages a game of Flappy Bird
@@ -43,7 +40,7 @@ public class FlappyBird {
         popupIcon = new ImageIcon("res/deadBird.png", "Flappy Bird Icon");
         running = false;
         reset();
-        togglePointsVisibility(false); // TODO fix the fact that points just go away after first playthrough
+        togglePointsVisibility(false);
 
         canvas.animate(() -> { // TODO idk why but the hitboxes on the pipes are not correct :/ we should fix that
             groundAnimationLoop();
@@ -130,7 +127,7 @@ public class FlappyBird {
         pipesHandler = new PipesHandler();
         canvas.add(pipesHandler.getGraphic());
         // Add points text
-        pointsText = new GraphicsText("" + points, 22, 50);
+        pointsText = new GraphicsText("" + points, 22, 69);
         pointsText.setStrokeWidth(2);
         pointsText.setFontSize(60);
         pointsText.setFillColor(Color.WHITE);
