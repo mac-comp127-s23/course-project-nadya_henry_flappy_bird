@@ -14,7 +14,7 @@ public class PipesHandler {
 
     private final int PIPE_GAP = 50;
     private final int PIPE_INIT_X = 675;
-    public final int PIPE_VELOCITY = 5;
+    public final static int PIPE_VELOCITY = 5;
     private final Point PIPE_LIMIT = new Point(250, 550);
 
     private Random random;

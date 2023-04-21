@@ -11,14 +11,24 @@ import java.util.List;
  */
 public class Bird {
 
-    protected static final double BIRD_X = 200;
+    protected static final double BIRD_X = FlappyBird.CANVAS_WIDTH/2;
     protected static final double BIRD_WIDTH = 60;
     private final double FLAP_VELO = 6.9;
+    private double y = (BIRD_WIDTH/2) - 5;
+
+
     
     private GraphicsGroup graphics;
     private Image birdPic;
     private double velocity;
     private boolean alive;
+    private double time = 0;
+    private double amp = 10;  
+    private double freq = 1/60.0; 
+   
+    
+     
+
 
     public Bird() {
         alive = true;
@@ -27,7 +37,7 @@ public class Bird {
 
         birdPic = new Image("flappyBird.png");
         birdPic.setScale(0.1);
-        birdPic.setCenter((BIRD_WIDTH/2) + 5, (BIRD_WIDTH/2) - 5);
+        birdPic.setCenter((BIRD_WIDTH/2) + 5, y);
         graphics.add(birdPic);
     }
 
@@ -73,6 +83,19 @@ public class Bird {
         velocity -= 0.69;
         return true;
     }
+
+
+    /**
+	 * Floating bird effect on menu screen
+	 */
+	protected void birdFloat() { // Add to UML Doc
+        double yOffset = amp * Math.sin(2*Math.PI*freq*time);
+        graphics.setCenter(BIRD_X, 350 + yOffset);
+        time += 1;
+ 
+    }
+
+
 
     public GraphicsGroup getGraphic() {
         return graphics;
