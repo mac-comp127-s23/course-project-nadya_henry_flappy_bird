@@ -28,9 +28,6 @@ public class FlappyBird {
     private boolean running;
     private Image titleImg; // TODO: Add to UML
     private Image startButtonImg; // TODO: Add to UML
-    private boolean pointsVisible = false; // TODO: Add to UML
-    
-
 
     private Bird bird;
     private PipesHandler pipesHandler;
@@ -40,9 +37,8 @@ public class FlappyBird {
         popupIcon = new ImageIcon("res/deadBird.png", "Flappy Bird Icon");
         running = false;
         reset();
-        togglePointsVisibility(false);
 
-        canvas.animate(() -> { // TODO idk why but the hitboxes on the pipes are not correct :/ we should fix that
+        canvas.animate(() -> {
             groundAnimationLoop();
             if (running) mainGameplayLoop();
             else {
@@ -72,16 +68,6 @@ public class FlappyBird {
         if (!bird.isAlive()) gameOver();
     }
 
-    private void togglePointsVisibility(boolean visible) { // TODO: Add to UML
-        if (visible && !pointsVisible) {
-            canvas.add(pointsText);
-            pointsVisible = true;
-        } else if (!visible && pointsVisible) {
-            canvas.remove(pointsText);
-            pointsVisible = false;
-        }
-    }
-
     private void drawMenu () { // TODO: Add to UML
 		// Title
 		titleImg = new Image("logo.png");
@@ -92,6 +78,9 @@ public class FlappyBird {
         startButtonImg = new Image("Start.png");
         startButtonImg.setPosition(CANVAS_WIDTH/2 - startButtonImg.getWidth()/2, 685);
         canvas.add(startButtonImg);
+        // Hide pointsText
+        pointsText.setFilled(false);
+        canvas.draw();
     }
 
     public void moveGround() { // TODO: Add to UML
@@ -108,13 +97,13 @@ public class FlappyBird {
         if (!running) {
             canvas.remove(titleImg);
             canvas.remove(startButtonImg);
-            togglePointsVisibility(true);
+            pointsText.setFilled(true);
             running = true;
         }
         if (flapped) bird.flap();
     }
 
-    private void reset() { // TODO: Let points appear when the user clicks to replay the game.
+    private void reset() {
         points = 0;
         running = false;
         canvas.removeAll();
@@ -128,11 +117,10 @@ public class FlappyBird {
         canvas.add(pipesHandler.getGraphic());
         // Add points text
         pointsText = new GraphicsText("" + points, 22, 69);
-        pointsText.setStrokeWidth(2);
-        pointsText.setFontSize(60);
+        pointsText.setStroked(false);
+        pointsText.setFontSize(69);
         pointsText.setFillColor(Color.WHITE);
-        // canvas.add(pointsText);
-        togglePointsVisibility(true);
+        canvas.add(pointsText);
     
         // Add ground 
         groundImg = new Image("testGround.png"); //TODO clean up res folder (delete unused and rename used images)

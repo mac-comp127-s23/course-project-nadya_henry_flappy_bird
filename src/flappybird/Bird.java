@@ -16,8 +16,6 @@ public class Bird {
     private final double FLAP_VELO = 6.9;
     private double y = (BIRD_WIDTH/2) - 5;
 
-
-    
     private GraphicsGroup graphics;
     private Image birdPic;
     private double velocity;
@@ -25,10 +23,6 @@ public class Bird {
     private double time = 0;
     private double amp = 10;  
     private double freq = 1/60.0; 
-   
-    
-     
-
 
     public Bird() {
         alive = true;
@@ -84,7 +78,6 @@ public class Bird {
         return true;
     }
 
-
     /**
 	 * Floating bird effect on menu screen
 	 */
@@ -94,8 +87,6 @@ public class Bird {
         time += 1;
  
     }
-
-
 
     public GraphicsGroup getGraphic() {
         return graphics;
