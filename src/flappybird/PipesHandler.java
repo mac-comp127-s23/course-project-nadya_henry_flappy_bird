@@ -1,7 +1,6 @@
 package flappybird;
 
 import edu.macalester.graphics.GraphicsGroup;
-import edu.macalester.graphics.Point;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,7 +14,7 @@ public class PipesHandler {
     private final int PIPE_GAP = 50;
     private final int PIPE_INIT_X = 700;
     public final static int PIPE_VELOCITY = 5;
-    private final Point PIPE_LIMIT = new Point(250, 550);
+    private final int PIPE_LIMIT[] = {250, 550}; // TODO note change to array from point on uml
 
     private Random random;
     private Queue<Pipe> pipes;
@@ -26,7 +25,7 @@ public class PipesHandler {
         random = new Random();
         pipes = new LinkedList<Pipe>();
         pipeGraphics = new GraphicsGroup();
-        pipeGraphics.moveBy(-10, 0); // This offsets the visuals from the hitboxes, but only by a little tiny bit.
+        pipeGraphics.moveBy(-9, 0); // This offsets the visuals from the hitboxes, but only by a little tiny bit.
         lastPairCenter = FlappyBird.GROUND_Y/2;
         generatePipes(randomRange(lastPairCenter), PIPE_INIT_X);
         generatePipes(randomRange(lastPairCenter), PIPE_INIT_X + ((FlappyBird.CANVAS_WIDTH + 80) / 2));
@@ -75,8 +74,8 @@ public class PipesHandler {
      */
     private int randomRange(int prevCenter) {
         int returnVal = random.nextInt(
-            Math.max(lastPairCenter - 150, (int)PIPE_LIMIT.getX()),
-            Math.min(lastPairCenter + 150, (int)PIPE_LIMIT.getY()));
+            Math.max(lastPairCenter - 150, PIPE_LIMIT[0]),
+            Math.min(lastPairCenter + 150, PIPE_LIMIT[1]));
         lastPairCenter = returnVal;
         return returnVal;
     }
