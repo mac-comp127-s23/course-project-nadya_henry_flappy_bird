@@ -13,7 +13,7 @@ import java.util.Random;
 public class PipesHandler {
 
     private final int PIPE_GAP = 50;
-    private final int PIPE_INIT_X = 675;
+    private final int PIPE_INIT_X = 750;
     public final static int PIPE_VELOCITY = 5;
     private final Point PIPE_LIMIT = new Point(250, 550);
 
@@ -26,6 +26,7 @@ public class PipesHandler {
         random = new Random();
         pipes = new LinkedList<Pipe>();
         pipeGraphics = new GraphicsGroup();
+        pipeGraphics.moveBy(-50, 0);
         lastPairCenter = FlappyBird.GROUND_Y/2;
         generatePipes(randomRange(lastPairCenter), PIPE_INIT_X);
         generatePipes(randomRange(lastPairCenter), PIPE_INIT_X + ((FlappyBird.CANVAS_WIDTH + 80) / 2));
