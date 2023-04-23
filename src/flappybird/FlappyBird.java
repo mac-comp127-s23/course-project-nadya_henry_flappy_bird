@@ -123,7 +123,7 @@ public class FlappyBird {
         canvas.add(pointsText);
     
         // Add ground 
-        groundImg = new Image("testGround.png"); //TODO clean up res folder (delete unused and rename used images)
+        groundImg = new Image("ground.png");
         groundImg.setPosition(0,GROUND_Y + 40);
         canvas.add(groundImg);
         // Add bird

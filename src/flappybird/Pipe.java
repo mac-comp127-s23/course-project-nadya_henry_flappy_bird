@@ -17,7 +17,10 @@ public class Pipe {
         this.x = x;
 
         Image longImg;
-        if (pointingUP) longImg = new Image("downPipe.png");
+        if (pointingUP) {
+            longImg = new Image("downPipe.png");
+            x -= 2; // Fixes alignment between top and bottom pipes
+        } 
         else longImg = new Image("upPipe.png");
         longImg.setScale(3.5);
         longImg.setPosition(x, edge*1.5);
