@@ -39,11 +39,9 @@ public class FlappyBird {
         reset();
 
         canvas.animate(() -> {
-            groundAnimationLoop();
+            moveGround();
             if (running) mainGameplayLoop();
-            else {
-                birdFloatAnimationLoop();
-            }
+            else bird.birdFloat();
         });
         canvas.onMouseDown(event -> control(true));
         canvas.onKeyDown(event -> {
@@ -51,16 +49,13 @@ public class FlappyBird {
         });
     }
 
-    private void birdFloatAnimationLoop() { // TODO: Add to UML
-        if (!running) {
-            bird.birdFloat();
-        }
-    }
-
-    private void groundAnimationLoop() { // TODO: Add to UML
-        moveGround();
-    }
-
+    /*
+     * Runs every frame, handles four distinct tasks:
+     * 1. Tell the bird to update its position
+     * 2. Tell the PipesHandler to update the frame (checking for death and points)
+     * 3. Update the points text to the correct amount of points
+     * 4. Run gameOver() if the bird has died.
+     */
     private void mainGameplayLoop() {   // TODO: Add to UML
         bird.move(); 
         if (pipesHandler.movePipes(bird)) points += 1;
@@ -68,6 +63,9 @@ public class FlappyBird {
         if (!bird.isAlive()) gameOver();
     }
 
+    /*
+     * Draw the start menu on the canvas
+     */
     private void drawMenu () { // TODO: Add to UML
 		// Title
 		titleImg = new Image("logo.png");
@@ -83,6 +81,10 @@ public class FlappyBird {
         canvas.draw();
     }
 
+    /*
+     * Runs every frame, moves the groundImg
+     * to create the illusion that the bird is moving forward.
+     */
     public void moveGround() { // TODO: Add to UML
         double groundX = groundImg.getX();
         groundX -= PipesHandler.PIPE_VELOCITY;
@@ -92,6 +94,9 @@ public class FlappyBird {
 
     /*
      * Runs when user presses the space bar or clicks the canvas.
+     * Tells the bird to flap
+     * Also, if this is the first user input, removes the start menu from the canvas
+     * and begins the game.
      */
     private void control(boolean flapped){
         if (!running) {
@@ -103,6 +108,9 @@ public class FlappyBird {
         if (flapped) bird.flap();
     }
 
+    /*
+     * Initializes important instance variables and draws them to the canvas.
+     */
     private void reset() {
         points = 0;
         running = false;
@@ -133,6 +141,10 @@ public class FlappyBird {
         drawMenu();
     }
 
+    /*
+     * Runs when the bird touches the ground or a pipe
+     * Handles the death animation, the death popup screen, and restarting the game
+     */
     private void gameOver() {
         while (bird.animateDeath()) { // Have bird fall to ground.
             canvas.draw();
@@ -153,6 +165,9 @@ public class FlappyBird {
         }
     }
 
+    /*
+     * Change the text in the top right to the number of points the player has
+     */
     private void updatePointsText() {
         pointsText.setText("" + points);
         canvas.draw();

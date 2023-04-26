@@ -28,14 +28,7 @@ public class PipesHandler {
         pipeGraphics.moveBy(-9, 0); // This offsets the visuals from the hitboxes, but only by a little tiny bit.
         lastPairCenter = FlappyBird.GROUND_Y/2;
         generatePipes(randomRange(lastPairCenter), PIPE_INIT_X);
-        generatePipes(randomRange(lastPairCenter), PIPE_INIT_X + ((FlappyBird.CANVAS_WIDTH + 80) / 2));
-        //TODO change above line: right now the space between pipes in the x direction seems inconsistent
-        // (fix that by changing the second parameter in line 31)
-
-        
-
-
-
+        generatePipes(randomRange(lastPairCenter), PIPE_INIT_X + (0.5)*(FlappyBird.CANVAS_WIDTH + 80));
     }
 
     /*
