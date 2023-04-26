@@ -37,7 +37,11 @@ public class Bird {
     }
 
     /*
-     * Runs every frame.
+     * Runs every frame, doing the following:
+     * - Rotating the bird based on its vertical velocity
+     * - Update the bird's position based on its vertical velocity
+     * - Changing the bird's velocity based on gravity
+     * - Check if the bird needs to die due to its proximity to the ground.
      */
     protected void move() {
         birdPic.setRotation(velocityToAngle(velocity));
