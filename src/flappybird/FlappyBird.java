@@ -78,6 +78,7 @@ public class FlappyBird {
         canvas.add(startButtonImg);
         // Hide pointsText
         pointsText.setFilled(false);
+        pointsText.setStroked(false);
         canvas.draw();
     }
 
@@ -103,6 +104,7 @@ public class FlappyBird {
             canvas.remove(titleImg);
             canvas.remove(startButtonImg);
             pointsText.setFilled(true);
+            pointsText.setStroked(true);
             running = true;
         }
         if (flapped) bird.flap();
@@ -125,9 +127,10 @@ public class FlappyBird {
         canvas.add(pipesHandler.getGraphic());
         // Add points text
         pointsText = new GraphicsText("" + points, 22, 69);
-        pointsText.setStroked(false);
         pointsText.setFontSize(69);
+        pointsText.setStrokeWidth(3);
         pointsText.setFillColor(Color.WHITE);
+        pointsText.setStrokeColor(Color.BLACK);
         canvas.add(pointsText);
     
         // Add ground 
