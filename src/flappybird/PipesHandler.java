@@ -31,6 +31,11 @@ public class PipesHandler {
         generatePipes(randomRange(lastPairCenter), PIPE_INIT_X + ((FlappyBird.CANVAS_WIDTH + 80) / 2));
         //TODO change above line: right now the space between pipes in the x direction seems inconsistent
         // (fix that by changing the second parameter in line 31)
+
+        
+
+
+
     }
 
     /*
