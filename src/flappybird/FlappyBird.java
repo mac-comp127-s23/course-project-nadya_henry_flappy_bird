@@ -27,8 +27,8 @@ public class FlappyBird {
     private Image backgroundImg;
     private ImageIcon popupIcon;
     private boolean running;
-    private Image titleImg; // TODO: Add to UML
-    private Image startButtonImg; // TODO: Add to UML
+    private Image titleImg;
+    private Image startButtonImg;
 
     private Bird bird;
     private PipesHandler pipesHandler;
@@ -57,7 +57,7 @@ public class FlappyBird {
      * 3. Update the points text to the correct amount of points
      * 4. Run gameOver() if the bird has died.
      */
-    private void mainGameplayLoop() {   // TODO: Add to UML
+    private void mainGameplayLoop() {
         bird.move(); 
         if (pipesHandler.movePipes(bird)) points += 1;
         updatePointsText();
@@ -67,7 +67,7 @@ public class FlappyBird {
     /*
      * Draw the start menu on the canvas
      */
-    private void drawMenu () { // TODO: Add to UML
+    private void drawMenu () {
 		// Title
 		titleImg = new Image("logo.png");
         titleImg.setCenter(CANVAS_WIDTH / 2, CANVAS_WIDTH / 4);
@@ -87,7 +87,7 @@ public class FlappyBird {
      * Runs every frame, moves the groundImg
      * to create the illusion that the bird is moving forward.
      */
-    public void moveGround() { // TODO: Add to UML
+    public void moveGround() {
         double groundX = groundImg.getX();
         groundX -= PipesHandler.PIPE_VELOCITY;
         if (groundX < -groundImg.getWidth()/2) groundX = 0;

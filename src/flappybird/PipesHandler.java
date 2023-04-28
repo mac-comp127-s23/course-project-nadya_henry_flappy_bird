@@ -15,7 +15,7 @@ public class PipesHandler {
     private final int PIPE_GAP = 50;
     private final int PIPE_INIT_X = 700;
     public final static int PIPE_VELOCITY = 5;
-    private final int PIPE_LIMIT[] = {250, 550}; // TODO note change to array from point on uml
+    private final int PIPE_LIMIT[] = {250, 550};
 
     private Random random;
     private Queue<Pipe> pipes;

@@ -24,7 +24,7 @@ public class Bird {
     private double time = 0;
     private double amp = 5;
     private double freq = 1/60.0;
-    private double yOffset = 0; //TODO add to uml
+    private double yOffset = 0;
 
     public Bird() {
         alive = true;
