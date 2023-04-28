@@ -4,8 +4,9 @@ import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Point;
 import edu.macalester.graphics.Image;
 
-/**
+/*
  * Defines a pipe for a game of Flappy Bird
+ *  by Nadya Konadu, Kynan Desouza-Chen, and Henry Heyden
  */
 public class Pipe {
 

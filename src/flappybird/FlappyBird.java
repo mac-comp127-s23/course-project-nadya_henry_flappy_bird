@@ -10,8 +10,9 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
-/**
- * Manages a game of Flappy Bird
+/*
+ * An object that creates and handles a game of Flappy Bird
+ *  by Nadya Konadu, Kynan Desouza-Chen, and Henry Heyden
  */
 public class FlappyBird {
 
@@ -169,7 +170,7 @@ public class FlappyBird {
     }
 
     /*
-     * Change the text in the top right to the number of points the player has
+     * Change the text in the top left to the number of points the player has
      */
     private void updatePointsText() {
         pointsText.setText("" + points);

@@ -6,8 +6,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 
-/**
+/*
  * Manages the pipes for a game of Flappy Bird
+ *  by Nadya Konadu, Kynan Desouza-Chen, and Henry Heyden
  */
 public class PipesHandler {
 

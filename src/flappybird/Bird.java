@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Defines a bird for a game of Flappy Bird
+ *  by Nadya Konadu, Kynan Desouza-Chen, and Henry Heyden
  */
 public class Bird {
 
