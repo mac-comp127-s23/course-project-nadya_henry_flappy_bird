@@ -15,4 +15,11 @@ One improvement could be adding more collision points, which would make it impos
 at present, already an uncommon occurence).
 In terms of specific bugs or glitches, the code is functional, but some potential issues could arise depending on the user's environment. For example, the game may not run properly if the image resources are not located in the correct directory. Another issue could be the responsiveness of the game, which may depend on the user's hardware and processing power.
 
+<b>Societal Impact:</b>
+In terms of societal impact, there are potential concerns about the game's accessibility. Although the game's mechanics are straightforward, some users may be excluded due to technical requirements, such as having Java 17 and the Kilt Graphics library. To make the game more inclusive, addressing technical requirements may also be necessary to ensure the game is accessible to the widest possible audience.
+
+Another concern is that the game may be harmful to vulnerable populations, such as users with medical conditions or disabilities. The rapid movement and flashing colors of the game could be distressing or triggering, while the control scheme could be challenging for those with limited mobility or dexterity. To address these concerns, the game could include accessibility options, such as the ability to adjust the game's speed, use color palettes that are less likely to cause adverse reactions, or incorporate alternate control schemes to accommodate a wider range of abilities.
+
+Lastly, the addictive nature of the game is a concern. Flappy Bird's simple mechanics can lead to excessive screen time and negative effects on mental and physical health. Although it's not the developer's responsibility to prevent users from playing too much, it's worth considering the potential impact on users and society. To gain valuable insights into the game's potential unintended consequences, feedback could be solicited from a diverse group of players, including individuals with disabilities. By being mindful of these issues and working towards inclusive and equitable software development practices, the project can be responsible and benefit society as a whole.
+
 Press <kbd>Space</kbd> or <kbd>Click</kbd> to start!
