@@ -118,7 +118,6 @@ public class FlappyBird {
         points = 0;
         running = false;
         canvas.removeAll();
-
         // Draw things in the order they should be drawn
         // Add background image
         backgroundImg = new Image("background.jpeg");
@@ -133,7 +132,6 @@ public class FlappyBird {
         pointsText.setFillColor(Color.WHITE);
         pointsText.setStrokeColor(Color.BLACK);
         canvas.add(pointsText);
-    
         // Add ground 
         groundImg = new Image("ground.png");
         groundImg.setPosition(0,GROUND_Y + 40);
@@ -141,7 +139,6 @@ public class FlappyBird {
         // Add bird
         bird = new Bird();
         canvas.add(bird.getGraphic());
-
         drawMenu();
     }
 
@@ -153,16 +150,11 @@ public class FlappyBird {
         while (bird.animateDeath()) { // Have bird fall to ground.
             canvas.draw();
         }
-        canvas.draw();
-
         updatePointsText();
-        boolean playAgain = (JOptionPane.showConfirmDialog(
-            null,
+        boolean playAgain = (JOptionPane.showConfirmDialog(null,
             "Game Over! You earned " + points + " points!\nPlay again?",
             "Game Over!", JOptionPane.YES_NO_OPTION, 0, popupIcon) == 0);
-        if (playAgain) {
-            reset();
-        }
+        if (playAgain) reset();
         else {
             running = false;
             canvas.closeWindow();
@@ -185,8 +177,4 @@ public class FlappyBird {
     public static void main(String[] args) {
         new FlappyBird();
     }
-
 }
-
-
-

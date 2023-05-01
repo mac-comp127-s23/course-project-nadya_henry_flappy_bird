@@ -11,7 +11,7 @@ import edu.macalester.graphics.Image;
 public class Pipe {
 
     private GraphicsGroup pipeGraphic;
-    private double x; 
+    private double x;
 
     public Pipe(double edge, boolean pointingUP, double x) {
         pipeGraphic = new GraphicsGroup();

@@ -30,7 +30,6 @@ public class Bird {
         alive = true;
         graphics = new GraphicsGroup();
         graphics.setCenter(BIRD_X, 300);
-
         birdPic = new Image("flappyBird.png");
         birdPic.setScale(0.1);
         birdPic.setCenter((BIRD_WIDTH/2) + 5, y);
@@ -46,10 +45,8 @@ public class Bird {
      */
     protected void move() {
         birdPic.setRotation(velocityToAngle(velocity));
-
         graphics.moveBy(0, -velocity);
         velocity -= 0.5;
-
         // check if the bird hits the ground here.
         if (graphics.getY() >= FlappyBird.GROUND_Y - 30) {
             velocity = 0;
